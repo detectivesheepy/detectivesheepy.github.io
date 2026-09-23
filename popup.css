@@ -1,0 +1,91 @@
+/* 1. Fullscreen Overlay Background */
+.popup-overlay {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background-color: rgba(0, 0, 0, 0.4); /* Dim underlying page */
+  z-index: 9999;                         /* Always on top */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Courier New', Courier, monospace; /* Classic retro style */
+}
+
+/* 2. Main Window Box */
+.retro-window {
+  background: #f7e4ff; /* Light pastel background */
+  border: 3px solid #000000;
+  border-radius: 4px;
+  width: 90%;
+  max-width: 440px;
+  /* Retro hard shadow offset (No blur) */
+  box-shadow: 8px 8px 0px rgba(0, 0, 0, 0.75); 
+  overflow: hidden;
+}
+
+/* 3. The Top Header/Titlebar */
+.window-titlebar {
+  background: #a4adff; /* Contrasting header color */
+  color: #ffffff;
+  padding: 8px 12px;
+  font-weight: bold;
+  font-size: 14px;
+  text-align: center;
+  border-bottom: 3px solid #000000;
+  letter-spacing: 1px;
+}
+
+/* 4. Inside Content Area */
+.window-content {
+  padding: 25px;
+  text-align: center;
+  color: #000000;
+}
+
+.window-content h2 {
+  font-size: 24px;
+  margin-bottom: 15px;
+}
+
+.window-content p {
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.italic-notice {
+  font-style: italic;
+  font-size: 12px !important;
+  margin: 20px 0;
+}
+
+/* 5. Stamp / Micro-Badge Graphic */
+.retro-badge {
+  display: inline-block;
+  border: 2px dashed #000000;
+  padding: 4px 8px;
+  font-size: 11px;
+  background: #ffffff;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+/* 6. The "Enter Site" Button */
+.retro-btn {
+  display: inline-block;
+  background: #ffb5f5; /* Bright pink accent */
+  color: #000000;
+  border: 3px solid #000000;
+  border-radius: 6px;
+  padding: 10px 30px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0px 4px 0px #000000;
+  transition: transform 0.1s ease, box-shadow 0.1s ease;
+}
+
+/* Button Click Feel */
+.retro-btn:active {
+  transform: translateY(4px);
+  box-shadow: 0px 0px 0px #000000;
+}

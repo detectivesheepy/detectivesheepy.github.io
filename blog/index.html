@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>my blog!</title>
+    <style>
+        /* Remove default browser spacing */
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            width: 100%;
+            overflow: hidden;
+            font-family: sans-serif;
+        }
+
+        /* Make iframe fill the entire screen */
+        iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* Floating button style */
+        .floating-button {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 999; /* Ensures it stays above the iframe */
+            padding: 10px 20px;
+            background-color: #333;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 14px;
+            font-weight: bold;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+            transition: background-color 0.3s ease;
+        }
+
+        .floating-button:hover {
+            background-color: #555;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Floating Back Button -->
+    <a href="https://lorenzolikesstuff.nekoweb.org" class="floating-button">
+        ← back to my site!
+    </a>
+
+    <!-- Main Content Iframe -->
+    <iframe 
+        src="https://lorenzolikesstuff.bearblog.dev/blog" 
+        title="Lorenzo Likes Stuff Blog">
+    </iframe>
+
+</body>
+</html>

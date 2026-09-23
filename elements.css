@@ -1,0 +1,25 @@
+/* 1. Shrunk Box & GIF Setup */
+.site-box {
+    position: relative !important;
+    background: url("https://lorenzolikesstuff.nekoweb.org/lorenzolikesstuff.nekoweb.org/images/sitebox.gif") center/contain no-repeat !important;
+    min-height: 150px !important; /* This makes the box smaller */
+    cursor: pointer !important;
+    overflow: hidden !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+/* 2. THE NUKE: Hides ALL cat/text junk */
+.site-box * {
+    visibility: hidden !important;
+    opacity: 0 !important;
+}
+
+/* 3. CLICKABLE OVERLAY */
+.site-box > a {
+    visibility: visible !important;
+    opacity: 1 !important;
+    position: absolute !important;
+    inset: 0 !important;
+    z-index: 10 !important;
+}

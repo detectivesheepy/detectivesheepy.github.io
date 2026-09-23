@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://lorenzolikesstuff.nekoweb.org/style.css" rel="stylesheet" type="text/css" media="all">
+    <meta charset="UTF-8">
+    <title>GIF with Music</title>
+    <style>
+        body {
+            margin: 0;
+            background-color: black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        img { max-width: 100%; height: auto; }
+    </style>
+</head>
+<body>
+    <!-- Replace with your actual file names -->
+    <center><img src="https://c.tenor.com/kt4ZAJIZmUoAAAAd/tenor.gif" alt="Looping GIF"></center>
+    <center><p><h1>this page doesnt exist twin 💔</h1></p></center>
+    <p>(btw click for music)</p>
+    <audio id="bgm" src="https://lorenzolikesstuff.nekoweb.org/error.mp3" loop></audio>
+
+    <script>
+        // Modern browsers block autoplay music. 
+        // This script starts the music when the user clicks anywhere on the page.
+        document.body.addEventListener('click', () => {
+            const audio = document.getElementById('bgm');
+            audio.play();
+        }, { once: true });
+    </script>
+</body>
+</html>

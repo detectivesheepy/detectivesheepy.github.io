@@ -1,0 +1,469 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <rssapp-ticker id="y4pee16z8HbVQtQq" style="
+        position: fixed;
+        top: 0px;
+        "></rssapp-ticker><script src="https://widget.rss.app/v1/ticker.js" type="text/javascript" async></script>
+        <script src="https://u.widget.st/ar.js"></script>
+        <script src="nekowebapi.js" defer></script>
+        <br><br><br><br>
+        
+        <script type="text/javascript">
+function tb8_makeArray(n){
+this.length = n;
+return this.length;
+}
+tb8_messages = new tb8_makeArray(3);
+tb8_messages[0] = "lorenzo's page";
+tb8_messages[1] = "hi twin";
+tb8_messages[2] = "cool website hey?";
+tb8_rptType = 'infinite';
+tb8_rptNbr = 5;
+tb8_speed = 100;
+tb8_delay = 2000;
+var tb8_counter=1;
+var tb8_currMsg=0;
+var tb8_tekst ="";
+var tb8_i=0;
+var tb8_TID = null;
+function tb8_pisi(){
+tb8_tekst = tb8_tekst + tb8_messages[tb8_currMsg].substring(tb8_i, tb8_i+1);
+document.title = tb8_tekst;
+tb8_sp=tb8_speed;
+tb8_i++;
+if (tb8_i==tb8_messages[tb8_currMsg].length){
+tb8_currMsg++; tb8_i=0; tb8_tekst="";tb8_sp=tb8_delay;
+}
+if (tb8_currMsg == tb8_messages.length){
+if ((tb8_rptType == 'finite') && (tb8_counter==tb8_rptNbr)){
+clearTimeout(tb8_TID);
+return;
+}
+tb8_counter++;
+tb8_currMsg = 0;
+}
+tb8_TID = setTimeout("tb8_pisi()", tb8_sp);
+}
+tb8_pisi()
+</script>
+
+        <script>const username = "lorenzolikesstuff"; // change the username!!!
+const posts_url = "https://cafe.frizzbees.dev/get_posts/1?name=";
+const profile_url = "https://social.nekoweb.org/profile/?view=";
+const post_url = "https://social.nekoweb.org/post/?id=";
+
+// thanks max
+(async () => {
+    try {
+        const request = await fetch(posts_url + username,);
+        let json = await request.json();
+        json = json[0]
+
+        timestamp = json["timestamp"] * 1000
+        time = new Date(timestamp).toUTCString();
+    
+        div = document.getElementById("nekocafe-status")
+        
+        div.innerHTML = `
+            <img id="nekocafe-pfp" src=${json["image"]} height=64"><p id="nekocafe-poster"><a href="${profile_url + username}">${json["name"]}</a></p>
+            <p id="nekocafe-text"><a href="${post_url + json["id"]}">${json["post"]}</a></p>
+            
+            <p id="nekocafe-time">${time}</p>
+        ` // make sure the height on the img fits your page!!!
+
+    } catch (error) {
+        console.error(error)
+    }
+})();</script>
+
+        <meta charset="UTF-8" />
+        <meta name="p:domain_verify" content="e038576ea81e635e0a1691624249536c"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>lorenzo's website <3</title>
+        <meta name="author" content="Lorenzo Farrance">
+        <meta name="description" content="lorenzo (lorenzo farrance)'s random stuff he does and collects">
+        <meta property="og:image" content="https://lorenzolikesstuff.com/images/sitebox.gif">
+        <meta name="keywords" content="lorenzo, lorenzo farrance, indie, dev, code, fun, silly">
+        <link href="style.css" rel="stylesheet" type="text/css" media="all">
+        <link rel="stylesheet" href="webmeji.css">
+        <title></title>
+        <link rel="icon" type="image/x-icon" href="https://lorenzolikesstuff.nekoweb.org/images/favicon.ico">
+        <script src="javascript/trail.js"></script>
+        
+        <script src="https://github.com/evert/jneko/raw/refs/heads/main/jneko.js"></script>
+
+        
+        <!-- This is the global site event script. You can change it for different events. 
+        - newyears.js
+        - rain.js
+        -->
+        <script src="https://lorenzolikesstuff.nekoweb.org/javascript/"></script>
+        <script src="https://raw.githubusercontent.com/detectivesheepy/mastodon.js/refs/heads/main/mastodon.js"></script>
+        
+        <link rel="stylesheet" href="popup.css">
+        
+<style>#bg-video {
+  position: fixed;     /* Keeps the background locked in place while you scroll */
+  top: 0;
+  left: 0;
+  width: 100vw;       /* Forces the element to the full viewport width */
+  height: 100vh;      /* Forces the element to the full viewport height */
+  z-index: -1;         /* Places it behind all your other content */
+  object-fit: cover;   /* Ensures the animation fills the space without stretching */
+  filter: brightness(1.5);
+}
+</style>
+        <video autoplay muted loop playsinline id="bg-video">
+  <source src="https://lorenzolikesstuff.nekoweb.org/bg.mp4" type="video/mp4">
+</video>
+    </head>
+    <body>
+        <ws-widget type="tooltips" iid="12869" embed="script"></ws-widget>
+        
+        
+        <script>document.addEventListener("DOMContentLoaded", () => {
+  const overlay = document.getElementById("retroOverlay");
+  const enterBtn = document.getElementById("enterSiteBtn");
+
+  // Close the popup frame when user clicks the button
+  enterBtn.addEventListener("click", () => {
+    overlay.style.display = "none";
+  });
+});
+</script>
+        
+<!-- The Overlay (Blurs or darkens the background) -->
+<div id="retroOverlay" class="popup-overlay">
+  
+  <!-- The Window Frame -->
+  <div class="retro-window">
+    
+    <!-- Title Bar -->
+    <div class="window-titlebar">
+      <span>you should probably read this</span>
+    </div>
+    
+    <!-- Window Body Content -->
+    <div class="window-content">
+        
+      <h2>Hello there!</h2>
+      <p>welcome to my shitty website<br>may contain flashing lights that could affect epileptic people btw!</p>
+      
+      <p>
+        i would reccomend hard refreshing (ctrl+shift+r) if you are revisiting bc i update css sometimes
+      </p>
+      <a href="https://www.mabsland.com/Adoption.html" target="_blank"><img src="http://www.mabsland.com/Pandas/Censor_PGc.gif" alt="WebPG" height="31" width="88"></a>
+        <a href="https://brainmade.org/" target="_blank"><img src="https://brainmade.org/88x31-light.png" alt="Brainmade"></a>
+        <a href="" target="_blank"><img src="https://cyber.dabamos.de/88x31/bestviewedcomp.gif" alt="WebPG"></a><br><br>
+        
+        <ws-widget type="nekoatsume" iid="9302" embed="iframe"></ws-widget>
+      
+      <!-- Retro Badge Counter / Graphic -->
+      
+      
+      <!-- Action Close Button -->
+      <button id="enterSiteBtn" class="retro-btn">idgaf let me in bro</button>
+    </div>
+    
+  </div>
+</div>
+<ws-widget type="cursor" iid="10942" embed="script"></ws-widget>
+        
+
+        
+    <header>
+        <h1>lorenzo's corner</h1><br><br><br><br><br><br><br><br><br><br>
+`       <right><a href="https://www.mabsland.com/Adoption.html" target="_blank"><img src="http://www.mabsland.com/Pandas/Censor_PGc.gif" alt="WebPG" height="31" width="88"></a>
+        <a href="https://brainmade.org/" target="_blank"><img src="https://brainmade.org/88x31-light.png" alt="Brainmade"></a>
+        <a href="" target="_blank"><img src="https://cyber.dabamos.de/88x31/bestviewedcomp.gif" alt="WebPG"></a></right>
+        
+    </header>
+        
+    <nav>
+        <ul>
+        <li><a href="https://lorenzolikesstuff.bearblog.dev/feed/?type=rss">rss</a></li>
+        <li><a href="https://lorenzolikesstuff.com/blog/">blog</a></li>
+        <li><a href="https://lorenzo.atabook.org">guestbook</a></li>
+        <li><a href="https://lorenzolikesstuff.com/mikumouse.css">mikumouse.css</a></li>
+        <li><a href="https://turntable.lorenzolikesstuff.com">play turntable</a></li>
+        </ul>
+    </nav>
+        
+    <div id="content">
+        
+    <div id="sidebar">
+        <div id="avatar">
+            <img src="images/me.png" alt="my icon!">
+        </div>
+        
+        <div id="bio">
+            <p>names lorenzo :D<br>he/him.</p>
+            <p>likes: pokemon,celsius, computers, music</p>
+            <p>dislikes: annoying ppl, not saving work, you! (jk) </p>
+        </div>
+        <center><a href="https://nekoweb.org" target="_blank"><img src="https://lorenzobadges.vercel.app/assets/nekoweb.gif" alt="Nekoweb | The internet is for the cats!"></a>
+<a href="https://yesterweb.org/no-to-web3/" target="_blank"><img src="https://lorenzobadges.vercel.app/assets/noweb32.gif" alt="NO WEB3"></a><br>
+<a href="https://code.visualstudio.com/" target="_blank"><img src="https://lorenzobadges.vercel.app/assets/vscode.gif" alt="Visual Studio Code"></a>
+<a href="https://blinkies.cafe" target="_blank"><img src="https://lorenzobadges.vercel.app/assets/iloveblinkies.gif" alt="Blinkies Cafe!!!"></a><br>
+<a href="https://playwebradio.vercel.app" target="_blank"><img src="https://playwebradio.vercel.app/button.gif" alt="webradio"></a>
+<a href="https://skelenby.neocities.org/"> <img src="https://skelenby.neocities.org/src/skelenbybtn.gif" alt="skelenby: create - collect"> </a><br>
+<a href="https://marcoisbored.nekoweb.org/" target="_blank"><img src="https://marcoisbored.nekoweb.org/site-button.gif" alt="Marco's Site!"title="CLICK IT. NOW."></a>
+<a href="https://petrapixel.neocities.org/" target="_blank"><img src="https://cdn.jsdelivr.net/gh/petracoding/petrapixel.neocities.org@latest/public/assets/img/linkback.gif" alt="petrapixel"></a><br>
+<a href="https://ghostk.id/"><img src="https://ghostk.id/i/88x31.gif" width="88" height="31" alt="https://ghostk.id button"></a>
+<a href="https://lorenzo.atabook.org"><img src="https://kingdra.net/assets/index/guestbook.gif"></a><br>
+<a href="https://sealshore.nekoweb.org/" target="_blank"><img src="https://file.garden/aF9Y2rjeJ2PqUbPh/sealshorebutton"></a>
+<a href="https://dimden.dev/"><img src="https://dimden.dev/services/images/88x31.gif"></a><br>
+<a href="https://atabook.org/"><img src="https://atabook.org/images/button.gif" alt="atabook - guestbook site" border="0"></a>
+<a href="https://frutigeraeroarchive.org"><img src="https://frutigeraeroarchive.org/images/buttons/frutigeraeroarchive_button.png" alt="frutiger aero archive" border="0"></a><br>
+<a href="https://max.nekoweb.org/"><img src="https://max.nekoweb.org/images/button.png" alt="max's apartment"></a>
+<a href="https://yeepsite.nekoweb.org" title="The Yeepsite"><img src="https://yeepsite.nekoweb.org/images/Button.webp" alt="Yeepsite" style="image-rendering: pixelated;"/></a><br>
+<a href="https://milkyway.moe/"><img src="https://milkyway.moe/milkybuttons/MiLKYStelle.gif"></a>
+<iframe width="88" height="31" style="border:none" src="https://melonsoda.nekoweb.org/button.html" name="buttonlink"></iframe><br>
+<a href="https://area.nekoweb.org" title="GeoNetwork"><img src="https://area.nekoweb.org/button.png" alt="GeoNetwork" style="image-rendering: pixelated;"/></a>
+<a href="https://www.wikiwand.com/en/Autism" title="Autistic"><img src="https://qalle.neocities.org/88x31/pride-autism-fullcolour.png" alt="Autistic" style="image-rendering: pixelated;"/></a><br>
+<a href="https://www.ikea.com/fi/en/p/blahaj-soft-toy-shark-30373588/" title="BUY A BLAHAJ"><img src="https://qalle.neocities.org/88x31/pride-blahaj.png" alt="Blahaj" style="image-rendering: pixelated;"/></a>
+<a href="https://ellen.nekoweb.org" target="_blank"><img src="https://ellen.nekoweb.org/Images/website%20button.gif" alt="ellenthekat" title="oOoOoOo, you wanna click on this don't ya?"></a><br>
+<a href="https://rainboe.nekoweb.org/" target="new"><img src="https://rainboe.nekoweb.org/img/buttons/rainboe88x31.gif"></a>
+<a href="https://andromedagalaxy.nekoweb.org/" target="_blank"><img src="https://andromedagalaxy.nekoweb.org/67.gif" alt="andromedagalaxy" title="this is my dumb moronic my website (im poop at coding)"></a><br>
+<a href="https://mynekosworld.neocities.org/"><img src="https://mynekosworld.pages.dev/static/img/button/rolling1.gif" width="88" height="31" alt="My Nekos' World"></a>
+<a href="https://numa-smells.nekoweb.org/"><img src="https://numa-smells.nekoweb.org/assets/images/button.gif"></a><br>
+
+
+
+<div style="background: #; color: #ccc; padding: 15px; border-radius: 8px; font-family: monospace; position: relative; max-width: 100%; overflow-x: auto;">
+<button id="copyButton" style="padding: 10px 10px; font-weight: bold; cursor: pointer; border-radius: 5px; border: 1px solid #ccc; background-color: #f0f0f0;">
+  copy my button code!
+</button><br><br>
+<a href="https://lorenzolikesstuff.nekoweb.org" target="_blank"><img src="https://lorenzolikesstuff.nekoweb.org/button.gif" alt="Lorenzo" s="" site!=""></a><br>
+
+
+<script>
+  document.getElementById('copyButton').addEventListener('click', function() {
+    // The exact HTML string for your button
+    const htmlCode = '<a href="https://lorenzolikesstuff.nekoweb.org" target="_blank"><img src="https://lorenzolikesstuff.nekoweb.org/button.gif" alt="eat me"></a>';
+    
+    navigator.clipboard.writeText(htmlCode).then(() => {
+      const btn = this;
+      btn.innerText = 'copied!';
+      btn.style.backgroundColor = '';
+      
+      // Reset button after 2 seconds
+      setTimeout(() => {
+        btn.innerText = 'copy my button code!';
+        btn.style.backgroundColor = '#f0f0f0';
+      }, 2000);
+    }).catch(err => {
+      console.error('failed to copy :( ', err);
+      alert('Failed to copy to clipboard.');
+    });
+  });
+</script></center>
+        
+        <br>
+        <ws-widget type="migu" iid="3514" embed="iframe"></ws-widget>
+        
+<br><br>
+<center><p>------------</p></center>
+        <center><b>check out these websites!</b></center><br><br>
+        <center><iframe width="180" height="180" style="border:none" src="https://nvlk.dimden.dev/" name="neolink"></iframe></center><br>
+        <center><iframe width="180" height="180" style="border:none" src="https://nvlk.dimden.dev/" name="neolink"></iframe></center><br>
+        <center><iframe width="150" height="450" style="border:none" src="https://dogspit.nekoweb.org/sidelink.html" name="sidelink"></iframe></center>
+        
+    </div>
+        
+    <main>
+        <center><ws-widget type="adbank" iid="9304" embed="iframe"></ws-widget></center>
+        <h1>hello!</h1>
+        <iframe src="https://nekoweb.org/frame/follow" frameborder="0" width="130" height="20"></iframe> <a id="followers"></a>
+        <p>welcome to my website!!</p>
+        <p>my name is lorenzo (no shit) and i like to code, sleep, and do other stuff. it's 6:30 rn and i'm tired asf.</p>
+        <p>here you can find my blog, links, random stuff, and projects!!!</p>
+        <img src="https://count.getloli.com/@:lorenzo?name=%3Alorenzo&theme=moebooru&padding=5&offset=0&align=top&scale=1&pixelated=1&darkmode=0" alt=":lorenzo"/>
+
+<ws-widget
+type="musik"
+iid="11023"
+embed="script"
+scrolling="no"
+style="
+    border: none;
+    position: fixed;
+    top: 70px;
+    right: 1480px;
+    
+"></ws-widget>
+
+<ws-widget
+type="chat"
+iid="3418"
+scrolling="no"
+width="350px"
+height="530px"
+frameborder="no"
+style="
+  border: none;
+  position: fixed;
+  top: 300px;
+  left: 60px;
+"></ws-widget>
+
+<!-- 1. The Wrapper Container masks the scrollbar -->
+<div style="
+    position: fixed;
+    top: 20px;
+    right: 80px;
+    width: 300px;
+    height: 600px;
+    overflow: hidden; /* Cuts off the scrollbar */
+    background: transparent; /* Makes the wrapper background invisible */
+">
+    <!-- 2. The Iframe is made slightly wider to push the scrollbar out of view -->
+    <iframe
+        src="https://lorenzo.atabook.org"
+        style="
+          width: calc(100% + 20px); /* Pushes the scrollbar 20px to the right, hiding it */
+          height: 100%;
+          border: none;
+          background: transparent; /* Requests transparency from the frame */
+        "
+    ></iframe>
+</div>
+
+<a href="https://catnipstudios-fr.itch.io/helpmedotexe" id="helpme" style="
+position: fixed;
+    bottom: 65px;
+    right: 100px;
+"><img src="https://lorenzolikesstuff.com/images/helpmedotexe_thumbnail.png" width="230"></a>
+
+
+
+
+       
+        
+        <h2>im so cool, heres why</h2>
+        <div class="img-right">
+            <img src="https://lorenzolikesstuff.nekoweb.org/sphere.gif" alt="a photo of me">
+            
+            
+        </div>
+        <p>here is where we get to intresting info im coming up with on the spot!</p>
+        <h4>get to know me:</h4>
+        <ul>
+        <li>autistic dumbass 🥹</li>
+        <li>i really really like public transport</li>
+        <li>i love firetrucks!!</li>
+        <li>i live in brisbane wow</li>
+        <li>hujagadafi</li>
+        </ul>
+        <p>im so kewl 😎😎😎😎😎</p>
+        <iframe 
+  src="https://lorenzolikesstuff.com/socialbuttons.html" height="60" width="500" style="border: none;"></iframe>
+ 
+    
+        <h2>status</h2>
+        <ws-widget type="status" iid="3495"></ws-widget>
+        <br>
+        <a href="https://lorenzolikesstuff.nekoweb.org/music/spotify.html" target="_blank" rel="noopener"><img src="https://api.statusbadges.me/badge/spotify/1438071138747154575" alt="spotify"></a>
+        <img src="https://api.statusbadges.me/badge/status/1438071138747154575?simple=true" alt="status">
+        <br>
+        <br>
+        <ws-widget type="weather" iid="3499"></ws-widget>
+        <br><br>
+        
+        
+        <h2>join my webring!</h2>
+        <p>the <b>cool net webring</b> is for people who think their site is awesome!</p>
+        
+        Just click the name of the webring on our widget, which you can find under webrings! I'll email you back with the code to add to your site! <br>
+
+        <h2>webrings!</h2>
+        <center>
+        <ws-widget type="webring" iid="3506"></ws-widget><br>
+        <map name="noairb">
+        <area href="https://baccyflap.com/noai" target="_blank" shape="rect" coords="44,12,328,38" alt="no ai webring" title="no ai webring">
+        <area href="https://baccyflap.com/noai/?prv&s=lfp" target="_top" shape="poly" coords="0,25,43,0,43,50" alt="previous" title="previous">
+        <area href="https://baccyflap.com/noai/?rnd" target="_top" shape="rect" coords="288,39,328,46" alt="random" title="random">
+        <area href="https://baccyflap.com/noai/?nxt&s=lfp" target="_top" shape="poly" coords="372,25,329,0,329,50" alt="next" title="next">
+        </map>
+        <img usemap="#noairb" src="https://baccyflap.com/noai/rainbowwidget.gif" alt="a long, horizontal, rainbow-coloured bar terminating in two arrowheads. the words THE NO AI WEBRING are formed from negative spaces in the bar, which is broken into pieces. the arrowheads have the words PREV and NEXT in them, and below the bar to the right, in red, is the word RANDOM. behind the bar is a speckled yellow background. "><br>
+        <div id='gfdkris'> 
+                  <script type="text/javascript" src="https://fabstarotcorner.neocities.org/webring/onionring-variables.js"></script>
+                  <script type="text/javascript" src="https://fabstarotcorner.neocities.org/webring/onionring-widget.js"></script>
+              </div>
+              
+              
+              </center>
+            
+
+        
+
+        <h2>stamps!</h2>
+        <b><u><p>random</p></u></b>
+        <img src="https://anerdyartists.nekoweb.org/dih/IMG_4932.GIF" height="50">
+        <img src="https://file.garden/aFLa9SsHoBhT81zQ/stamps/tism.png" height="50">
+        <img src="https://file.garden/aFLa9SsHoBhT81zQ/stamps/math.png" height="50">
+        <img src="https://file.garden/aFLa9SsHoBhT81zQ/stamps/tumblr_2c9ec9f78941fd80c10f57b3b21cb432_3d77dc07_250.png" height="50">
+        <img src="https://file.garden/aFLa9SsHoBhT81zQ/stamps/brick.gif" height="50">
+        <img src="https://file.garden/aFLa9SsHoBhT81zQ/stamps/a5160e2b.png" height="50">
+        <b><u><p>fanlistings</p></u></b>
+        <img src="https://sleepycircus.neocities.org/images/fanlistings/blahaj.png">
+        <a href="https://elitv.bandcamp.com/album/the-big-big-deal"><img src="https://lorenzolikesstuff.com/images/tvroom_fanlisting.png"></a>
+
+
+
+        <h2>widgets!</h2>
+         <p></p>
+                        <b><u><p>poll of the month:</p></u></b>
+                        
+                        <ws-widget type="polls" iid="10929"></ws-widget>
+                        <br>
+                        <b><u><p>my time</p></u></b>
+                        <iframe src="https://free.timeanddate.com/clock/iad9gtwh/n47/tlau/tcf90/pc9f0/ftbi/bat5/tt0/tw1/tm1/td1/th2" frameborder="0" width="237" height="20"></iframe><br>
+                        <b><u><p>days since website created</p></u></b>
+                        <script language="JavaScript">
+                        TargetDate = "2026-01-06T05:00:00";
+                        BackColor = "palegreen";
+                        ForeColor = "navy";
+                        CountActive = true;
+                        CountStepper = 1;
+                        LeadingZero = true;
+                        DisplayFormat = "%%D%% Days, %%H%% Hours, %%M%% Minutes, %%S%% Seconds.";
+                        FinishMessage = "It is finally here!";
+                        </script>
+                        <script language="JavaScript" src="https://rhashemian.github.io/js/countdown.js"></script>
+                        
+                        <ws-widget type="discord" iid="10943" embed="script"></ws-widget>
+                        
+                        
+                        
+                        
+            
+                        
+                        
+                        
+        <h2>credits</h2>
+        <p>template by <a href="https://nomnomnami.com">NomnomNami</a>!</p>
+        <small id="updated"></small>
+        <div id="latest-mastodon-post"></div> <br>
+        <center><ws-widget type="adbank" iid="9304" embed="iframe"></ws-widget></center>
+    </main>
+        
+    </div>
+        
+    <footer>Website and star banner © 2026 and forever - Lorenzo Farrance! <br>
+    </footer>
+
+<script src='https://lorenzolikesstuff.com/kofi-monster.js'></script>
+<script>
+  kofiWidgetOverlay.draw('lorenzofr', {
+    'type': 'floating-chat',
+    'floating-chat.donateButton.text': 'give celsius!',
+    'floating-chat.donateButton.background-color': '#caec8a',
+    'floating-chat.donateButton.text-color': '#372558'
+  });
+</script>
+
+    </body>
+</html>

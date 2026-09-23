@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live News Feed</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: #f4f6f9;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+        }
+        .feed-container {
+            max-width: 600px;
+            width: 100%;
+            background: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            padding: 20px;
+        }
+        .feed-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid #edf2f7;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        .feed-header h2 {
+            margin: 0;
+            color: #1a202c;
+            font-size: 1.5rem;
+        }
+        .live-indicator {
+            display: flex;
+            align-items: center;
+            font-size: 0.85rem;
+            color: #e53e3e;
+            font-weight: bold;
+        }
+        .dot {
+            height: 8px;
+            width: 8px;
+            background-color: #e53e3e;
+            border-radius: 50%;
+            display: inline-block;
+            margin-right: 6px;
+            animation: blink 1.5s infinite;
+        }
+        @keyframes blink {
+            0% { opacity: 0.4; }
+            50% { opacity: 1; }
+            100% { opacity: 0.4; }
+        }
+        .news-item {
+            padding: 15px 0;
+            border-bottom: 1px solid #edf2f7;
+        }
+        .news-item:last-child {
+            border-bottom: none;
+        }
+        .news-title {
+            font-size: 1.1rem;
+            margin: 0 0 8px 0;
+        }
+        .news-title a {
+            color: #2b6cb0;
+            text-decoration: none;
+        }
+        .news-title a:hover {
+            text-decoration: underline;
+        }
+        .news-meta {
+            font-size: 0.8rem;
+            color: #718096;
+        }
+    </style>
+</head>
+<body>
+
+<div class="feed-container">
+    <div class="feed-header">
+        <h2>Global Headlines</h2>
+        <div class="live-indicator"><span class="dot"></span>LIVE</div>
+    </div>
+    <div id="news-feed">Loading latest updates...</div>
+</div>
+
+<script>
+    // Uses standard RSS2JSON converter to read live feeds without needing backend code
+    const FEED_URL = 'https://rss2json.com';
+
+    async function fetchNews() {
+        try {
+            const response = await fetch(FEED_URL);
+            const data = await response.json();
+            
+            if (data.status === 'ok') {
+                const feedContainer = document.getElementById('news-feed');
+                feedContainer.innerHTML = ''; // Clear loading text
+                
+                data.items.forEach(item => {
+                    const newsItem = document.createElement('div');
+                    newsItem.className = 'news-item';
+                    
+                    // Format publication date
+                    const pubDate = new Date(item.pubDate).toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
+
+                    newsItem.innerHTML = `
+                        <h3 class="news-title">
+                            <a href="${item.link}" target="_blank" rel="noopener noreferrer">${item.title}</a>
+                        </h3>
+                        <div class="news-meta">Published at ${pubDate} | ${item.author || 'News Desk'}</div>
+                    `;
+                    feedContainer.appendChild(newsItem);
+                });
+            } else {
+                document.getElementById('news-feed').innerText = 'Failed to load news updates.';
+            }
+        } catch (error) {
+            document.getElementById('news-feed').innerText = 'Error connection to the news server.';
+            console.error(error);
+        }
+    }
+
+    // Load instantly on page load
+    fetchNews();
+    
+    // Automatically auto-refresh the feed every 2 minutes
+    setInterval(fetchNews, 120000);
+</script>
+
+</body>
+</html>

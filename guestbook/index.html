@@ -1,0 +1,73 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <script>const username = "lorenzolikesstuff"; // change the username!!!
+const posts_url = "https://cafe.frizzbees.dev/get_posts/1?name=";
+const profile_url = "https://social.nekoweb.org/profile/?view=";
+const post_url = "https://social.nekoweb.org/post/?id=";
+
+// thanks max
+(async () => {
+    try {
+        const request = await fetch(posts_url + username,);
+        let json = await request.json();
+        json = json[0]
+
+        timestamp = json["timestamp"] * 1000
+        time = new Date(timestamp).toUTCString();
+    
+        div = document.getElementById("nekocafe-status")
+        
+        div.innerHTML = `
+            <p id="nekocafe-text"><a href="${post_url + json["id"]}">${json["post"]}</a></p>
+            <p id="nekocafe-time">${time}</p>
+        ` // make sure the height on the img fits your page!!!
+
+    } catch (error) {
+        console.error(error)
+    }
+})();</script>
+        <script id="chatBroEmbedCode">/* Chatbro Widget Embed Code Start */function ChatbroLoader(chats,async){async=!1!==async;var params={embedChatsParameters:chats instanceof Array?chats:[chats],lang:navigator.language||navigator.userLanguage,needLoadCode:'undefined'==typeof Chatbro,embedParamsVersion:localStorage.embedParamsVersion,chatbroScriptVersion:localStorage.chatbroScriptVersion},xhr=new XMLHttpRequest;xhr.withCredentials=!0,xhr.onload=function(){eval(xhr.responseText)},xhr.onerror=function(){console.error('Chatbro loading error')},xhr.open('GET','https://www.chatbro.com/embed.js?'+btoa(unescape(encodeURIComponent(JSON.stringify(params)))),async),xhr.send()}/* Chatbro Widget Embed Code End */ChatbroLoader({encodedChatId: '39AuG'});</script>
+        <meta charset="UTF-8" />
+        <meta name="p:domain_verify" content="e038576ea81e635e0a1691624249536c"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>lorenzo's website <3</title>
+        <meta name="author" content="lorenzo">
+        <meta name="description" content="random stuff i do and think is cool!">
+        <meta property="og:image" content="https://lorenzolikesstuff.nekoweb.org/images/star%20banner.png">
+        <link href="https://lorenzolikesstuff.nekoweb.org/style.css" rel="stylesheet" type="text/css" media="all">
+        
+        <!-- Elfsight Background Music | Untitled Background Music -->
+<script src="https://elfsightcdn.com/platform.js" async></script>
+<div class="elfsight-app-f0ad595a-1569-4c12-bfdb-38b5e255385e" data-elfsight-app-lazy></div>
+
+    </head>
+    <body>
+        
+        
+    <header>
+        <h1>lorenzo's corner</h1>
+    </header>
+        
+    <nav>
+        <ul>
+        <li><a href="https://lorenzolikesstuff.bearblog.dev/feed/?type=rss">rss</a></li>
+        <li><a href="https://lorenzolikesstuff.nekoweb.org/blog/">blog</a></li>
+        <li><a href="https://lorenzo.atabook.org">guestbook</a></li>
+        </ul>
+    </nav>
+        
+   
+        
+       
+        
+   <main>
+        <centre><iframe src="https://lorenzo.atabook.org" frameborder="0" title="Now playing" height="80" width="240"></iframe></centre>
+    </main>
+        
+    </div>
+        
+    <footer>© 2026 and forever - Lorenzo Farrance!</footer>
+    </body>
+</html>

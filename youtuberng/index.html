@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>YouTube Mystery Game</title>
+    <style>
+        body { font-family: 'Segoe UI', sans-serif; display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 100vh; background: #1a1a1a; color: white; margin: 0; }
+        
+        /* THE MASK: This hides the title bar */
+        .video-mask {
+            width: 560px;
+            height: 315px;
+            overflow: hidden;
+            position: relative;
+            background: #000;
+            border-radius: 12px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.8);
+        }
+
+        /* THE IFRAME: Physically embedded here */
+        #random-player {
+            position: absolute;
+            top: -65px; /* Pushes title bar out of view */
+            left: 0;
+            width: 100%;
+            height: 445px; /* Extra height to cover the crop */
+        }
+
+        .game-ui { margin-top: 30px; text-align: center; width: 560px; }
+        input { width: 80%; padding: 15px; border-radius: 8px; border: none; font-size: 16px; margin-bottom: 20px; background: #2a2a2a; color: white; border: 2px solid #444; outline: none; }
+        input:focus { border-color: #e74c3c; }
+        
+        #action-btn { padding: 15px 40px; cursor: pointer; border: none; border-radius: 8px; font-weight: bold; background: #e74c3c; color: white; font-size: 18px; transition: 0.2s; }
+        #action-btn:hover { background: #c0392b; }
+        
+        #answer-display { margin-top: 25px; font-size: 18px; color: #f1c40f; font-weight: bold; min-height: 1.5em; }
+    </style>
+</head>
+<body>
+
+    <div class="video-mask">
+        <iframe id="random-player" src="" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+    </div>
+
+    <div class="game-ui">
+        <input type="text" id="user-guess" placeholder="Guess the video name...">
+        <br>
+        <button id="action-btn" onclick="handleAction()">Show Answer</button>
+        <div id="answer-display">Loading videos...</div>
+    </div>
+
+    <script>
+        let videoList = [];
+        let currentTitle = "";
+        let gameState = "guessing";
+
+        // 1. Load your JSON list immediately
+        async function loadGame() {
+            try {
+                const response = await fetch('https://lorenzolikesstuff.nekoweb.org/youtuberng/videos.json');
+                videoList = await response.json();
+                startNewRound();
+            } catch (error) {
+                document.getElementById('answer-display').innerText = "Failed to load video list :/";
+                console.error("JSON Load Error:", error);
+            }
+        }
+
+        // 2. Pick a video and update the iframe source
+        async function startNewRound() {
+            if (videoList.length === 0) return;
+            
+            gameState = "guessing";
+            document.getElementById('answer-display').innerText = "";
+            document.getElementById('user-guess').value = "";
+            document.getElementById('action-btn').innerText = "Show Answer";
+
+            const randomId = videoList[Math.floor(Math.random() * videoList.length)];
+            
+            // UPDATE THE IFRAME SRC
+            const iframe = document.getElementById('random-player');
+            iframe.src = "https://youtube.com/embed/" + randomId + "?autoplay=1&rel=0";
+
+            // 3. FETCH TITLE USING A CORS PROXY
+            try {
+                const proxyUrl = "https://allorigins.win";
+                const targetUrl = encodeURIComponent(`https://noembed.com{randomId}`);
+                
+                const response = await fetch(proxyUrl + targetUrl);
+                const data = await response.json();
+                
+                // AllOrigins returns the data as a string in 'contents', so we parse it
+                const videoData = JSON.parse(data.contents);
+                currentTitle = videoData.title;
+            } catch (e) {
+                console.error("Title fetch failed:", e);
+                currentTitle = "Title Hidden (CORS Proxy Error)";
+            }
+        }
+
+        // 4. Handle the button click (Logic Switch)
+        function handleAction() {
+            const display = document.getElementById('answer-display');
+            const btn = document.getElementById('action-btn');
+
+            if (gameState === "guessing") {
+                display.innerText = "Real Title: " + currentTitle;
+                btn.innerText = "Next Video";
+                gameState = "revealed";
+            } else {
+                startNewRound();
+            }
+        }
+
+        window.onload = loadGame;
+    </script>
+</body>
+</html>

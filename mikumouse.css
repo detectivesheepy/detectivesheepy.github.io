@@ -1,0 +1,11 @@
+/* Insert these both in your CSS to get a miku mouse pointer on your page */
+
+
+body {
+    cursor: url(https://lorenzolikesstuff.nekoweb.org/images/Normal.gif), default;
+}
+
+
+a:hover {
+  cursor: url(https://lorenzolikesstuff.nekoweb.org/images/Link.gif), pointer;
+}

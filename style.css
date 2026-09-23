@@ -1,0 +1,436 @@
+/* these are the main colors and header image
+   replace them with anything you want! */
+:root {
+  --header-bg: url("https://lorenzolikesstuff.nekoweb.org/images/star%20banner.png");
+  --accent-color: #633aac;
+  --link-color: #9f4fb1;
+  --button-color: #e5bdf9;
+  --bg-color: #fff3e8;
+  --bg-color2: #ffe8fa;
+  --text-color: #372558;
+  --favorite-color: #caec8a;
+}
+/* you can get hex codes from sites like this:
+   https://palettes.shecodes.io/
+   i just looked up "css color templates" to find that link! */
+
+/* this applies to all the content */
+* {
+  color: var(--text-color);
+  /* change the font here, it's set up to all use the same one */
+  font-family: 'MS UI Gothic Custom', 'MS UI Gothic', sans-serif;
+}
+/* this is for when you select text on the page */
+::selection {
+  background: var(--accent-color);
+  color: var(--bg-color);
+}
+
+@font-face {
+  font-family: 'MS UI Gothic Custom';
+  /* Checks user's local system first */
+  src: local('MS UI Gothic'), 
+       /* Modern browsers */
+       url('https://lorenzolikesstuff.com/MS-UIGothic-02.woff2') format('woff2'), 
+       /* Older browser fallback */
+       url('https://lorenzolikesstuff.com/MS-UIGothic-02.woff') format('woff'); 
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap; /* Prevents invisible text while loading */
+}
+
+
+body {
+  background-color: var(--bg-color2);
+  margin: 0;
+  cursor: url(https://lorenzolikesstuff.nekoweb.org/images/Normal.gif), default;
+}
+/* i think having better line spacing helps text to be more readable, but you can remove it if you want */
+p {
+  line-height: 1.5em;
+}
+
+a:hover {
+  cursor: url(https://lorenzolikesstuff.nekoweb.org/images/Link.gif), pointer;
+}
+
+header {
+  /* you can add the image url in :root (at the top) if you want */
+  background: var(--header-bg);
+  background-size: 100%;
+  background-position: center;
+  /* change the minimum height if you want it to take up more/less space */
+  max-width: 960px;
+  min-height: 400px;
+  margin: 0 auto;
+  padding: 0 1em;
+  /* i have a default border-radius set, but i didn't want rounded corners on this element */
+  border-radius: 1em;
+  box-shadow: var(--button-color) 8px 8px 20px;
+}
+
+/* this is your site title displayed at the top of the page */
+header h1 {
+  padding: 0.5em;
+  border-radius: 0.3em;
+  max-width: 900px;
+  font-size: 4em;
+  /* you can change the text-align to center or right if you want it placed differently */
+  text-align: right;
+  color: var(--bg-color);
+  text-shadow: var(--accent-color) 4px 4px 0.5em;
+}
+
+nav {
+  /*padding: 1em;*/
+  margin-top: 2em;
+  font-weight: bold;
+}
+
+nav > ul {
+  max-width: 960px;
+  margin: auto;
+  line-height: 3rem;
+  /* this stuff makes it wrap around on mobile */
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  /* this line takes away the dot in front of the list items */
+  list-style-type: none;
+  /* list items have default padding but we don't need it for these */
+  padding-left: 0;
+  /* and this spaces out the buttons so they're not touching */
+  justify-content: space-evenly;
+}
+nav li {
+  text-align: center;
+}
+nav li > a {
+  background-color: var(--button-color);
+  padding: 0.5em 3em;
+  box-shadow: var(--bg-color2) 0 0 6px;
+  /* this takes away the link underline */
+  text-decoration: none;
+}
+nav li > a:visited {
+  color: var(--link-color);
+}
+nav li > a:hover {
+  background-color: var(--favorite-color);
+  box-shadow: var(--bg-color) 0 0 6px;
+  color: var(--text-color);
+}
+
+a {
+  color: var(--link-color);
+  border-radius: 0.5em;
+  text-shadow: var(--bg-color) 1px 1px 2px;
+  font-weight: bold;
+  transition:
+    color 400ms ease-out,
+    background-color 400ms ease-out,
+  text-decoration: none;
+  padding: 4px 8px; /* Adds space for the box */
+}
+a:visited {
+  color: var(--text-color);
+}
+a:hover {
+  color: var(--link-color);
+  text-decoration: underline; /* Adds underline on hover */
+  
+}
+
+/* you can change this to anything you want :) */
+ul {
+  list-style-type: "★ ";
+}
+
+#sidebar {
+  background: var(--bg-color);
+  min-width: 220px;
+  margin: 1em;
+  padding: 1em;
+  border: 2px dotted var(--link-color);
+  box-shadow: var(--button-color) 8px 8px 20px;
+  border-radius: 2em;
+}
+
+#avatar {
+  margin: 0.5em auto;
+  /* image size is 160px so i made its container a little bigger to fit the borders */
+  max-width: 164px;
+  max-height: 164px;
+  border-radius: 8em;
+}
+#avatar img {
+  background: var(--bg-color2);
+  border: 2px solid var(--button-color);
+  max-width: 160px;
+  border-radius: 8em;
+}
+
+#bio {
+  margin: 2em 1em;
+  background: var(--bg-color2);
+  border: 1px solid var(--button-color);
+  border-radius: 1em;
+}
+#bio p {
+  margin: 1em;
+}
+
+#content {
+  display: flex;
+  max-width: 960px;
+  margin: auto;
+}
+
+main {
+  background-color: var(--bg-color);
+  padding: 1em 2em;
+  margin: 1em;
+  border: 2px dotted var(--link-color);
+  box-shadow: var(--button-color) 8px 8px 20px;
+  border-radius: 2em;
+}
+
+main > h1,
+main > h2,
+main > h3 {
+  background-color: var(--favorite-color);
+  border-radius: 0.4em;
+  padding: 0.2em 0.5em;
+}
+
+/* a class for centering text and images */
+.center {
+  text-align: center;
+}
+/* made this a class so i can change it to be centered on mobile */
+.img-right {
+  float: right;
+}
+
+footer {
+  text-align: center;
+  font-size: small;
+  margin: 1em auto;
+  max-width: 960px;
+}
+
+/* these are the mobile styles! */
+@media only screen and (max-width: 800px) {
+  #content {
+    flex-wrap: wrap;
+  }
+  #sidebar {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+  }
+  header {
+    min-height: 160px;
+    margin: 0 1em;
+  }
+  header > h1 {
+    font-size: 3em;
+    margin: 0.4em;
+  }
+  #avatar {
+    margin: 0 1em;
+  }
+  #bio {
+    width: 50%;
+  }
+  main {
+    margin: 0 1em;
+  }
+  #sidebar ul {
+    margin: 0 1em;
+    display: flex;
+    flex-wrap: wrap;
+    line-height: 2em;
+  }
+  #sidebar li {
+    padding-left: 0;
+    margin: 0.3em 1em;
+  }
+  .img-right {
+    float: none;
+    text-align: center;
+  }
+  footer {
+    margin: 1em;
+  }
+  body {
+    /* Link to your new GIF; "auto" is a mandatory fallback */
+    cursor: url("https://lorenzolikesstuff.nekoweb.org/images/Normal.gif"), auto;
+  }
+  .speech-bubble {
+    position: relative; /* Essential for positioning the tail */
+    background: #f0f0f0;
+    border: 2px solid #333;
+    border-radius: 15px;
+    padding: 15px;
+    width: fit-content;
+    max-width: 300px;
+    margin: 20px;
+  }
+
+  /* The tail of the speech bubble */
+  .speech-bubble::after {
+    content: "";
+    position: absolute;
+    bottom: -15px; /* Adjust to move tail up/down */
+    left: 20px; /* Adjust to move tail left/right */
+
+    /* Creates a triangle using borders */
+    border-width: 15px 15px 0;
+    border-style: solid;
+    border-color: #f0f0f0 transparent transparent;
+    display: block;
+    width: 0;
+  }
+
+  /* Optional: Tail border (if your bubble has a border) */
+  .speech-bubble::before {
+    content: "";
+    position: absolute;
+    bottom: -18px;
+    left: 19px;
+    border-width: 16px 16px 0;
+    border-style: solid;
+    border-color: #333 transparent transparent;
+    display: block;
+    width: 0;
+    z-index: -1; /* Place behind the main tail color */
+  }
+
+  #bg-video {
+    position: fixed; /* Keeps it fixed in the viewport while you scroll */
+    top: 0;
+    left: 0;
+    width: 100%; /* Ensures full width */
+    height: 100vh; /* Ensures full viewport height */
+    z-index: -1; /* Places it behind all other content */
+    object-fit: cover; /* Prevents the animation from stretching or squishing */
+    filter: blur(20px);
+  }
+
+  iframe,
+  .player {
+    border: none;
+    outline: none;
+    box-shadow: none;
+  }
+
+/* 1. Chromium (Chrome, Edge) & Safari Styling */
+/* Do NOT include scrollbar-color or scrollbar-width here */
+::-webkit-scrollbar {
+  width: 14px;
+}
+
+::-webkit-scrollbar-track {
+  background: #FFF3E8;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #CAEC8A;
+  border-radius: 20px;
+  border: 4px solid #FFF3E8; /* 'Padding' effect */
+}
+
+/* 2. Firefox Styling ONLY */
+/* This @supports rule hides these properties from Chrome/Edge */
+@supports not selector(::-webkit-scrollbar) {
+  html {
+    scrollbar-width: thin;
+    scrollbar-color: #CAEC8A #FFF3E8;
+  }
+}
+
+   ::-webkit-scrollbar {
+      width: 16px;
+    }
+
+    ::-webkit-scrollbar:horizontal {
+      height: 17px;
+    }
+
+    ::-webkit-scrollbar-corner {
+      background: #eee;
+    }
+
+    ::-webkit-scrollbar-track:vertical {
+      background: linear-gradient(90deg, #e5e5e5, #f0f0f0 20%);
+    }
+
+    ::-webkit-scrollbar-track:horizontal {
+      background: linear-gradient(180deg, #e5e5e5, #f0f0f0 20%);
+    }
+
+    ::-webkit-scrollbar-thumb {
+      border: 1.5px solid #888;
+      border-radius: 3px;
+      box-shadow: inset 0 -1px 1px #fff, inset 0 1px 1px #fff;
+      background-color: #eee;
+    }
+
+    ::-webkit-scrollbar-thumb:vertical {
+      background: url("https://i.imgur.com/bfyvjnx.png") no-repeat 50%, linear-gradient(90deg, #eee 45%, #ddd 0, #bbb);
+    }
+
+    ::-webkit-scrollbar-thumb:horizontal {
+      background: url("https://i.imgur.com/tqe4SxM.png") no-repeat 50%, linear-gradient(180deg, #eee 45%, #ddd 0, #bbb);
+    }
+
+    ::-webkit-scrollbar-button:horizontal:end:increment,
+    ::-webkit-scrollbar-button:horizontal:start:decrement,
+    ::-webkit-scrollbar-button:vertical:end:increment,
+    ::-webkit-scrollbar-button:vertical:start:decrement {
+      display: block;
+    }
+
+    ::-webkit-scrollbar-button:vertical {
+      height: 17px;
+    }
+
+    ::-webkit-scrollbar-button:vertical:start:decrement {
+      background: white;
+      background-image: url("https://i.imgur.com/EFnEMEb.png");
+      background-repeat: no-repeat;
+      background-position: center;
+      -moz-background-size: cover;
+      -webkit-background-size: cover;
+      -o-background-size: cover;
+      background-size: cover;
+    }
+
+    ::-webkit-scrollbar-button:vertical:start:increment {
+      display: none;
+    }
+
+    ::-webkit-scrollbar-button:vertical:end:decrement {
+      display: none;
+    }
+
+    ::-webkit-scrollbar-button:vertical:end:increment {
+      background: white;
+      background-image: url("https://i.imgur.com/xuIt6Lc.png");
+      background-repeat: no-repeat;
+      background-position: center;
+      -moz-background-size: cover;
+      -webkit-background-size: cover;
+      -o-background-size: cover;
+      background-size: cover;
+    }
+    
+    html, body {
+  overflow-x: hidden;
+}
+    
+
+}
