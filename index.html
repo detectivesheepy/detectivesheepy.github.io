@@ -4,7 +4,43 @@
     <head>
         
         <script src="https://u.widget.st/ar.js"></script>
-        <script src="nekowebapi.js" defer></script>
+        <script>
+    const repo = "detectivesheepy/detectivesheepy.github.io";
+
+    fetch(`https://api.github.com/repos/${repo}/commits`)
+        .then(response => response.json())
+        .then(commits => {
+            const latestCommit = commits[0];
+
+            const date = new Date(latestCommit.commit.committer.date);
+
+            const formattedDate = date.toLocaleDateString("en-AU", {
+                day: "numeric",
+                month: "long",
+                year: "numeric"
+            });
+
+            const formattedTime = date.toLocaleTimeString("en-AU", {
+                hour: "numeric",
+                minute: "2-digit",
+                second: "2-digit"
+            });
+
+            const lastUpdated = document.getElementById("last-updated");
+
+            lastUpdated.textContent =
+                `last updated: ${formattedDate} at ${formattedTime}`;
+
+            // link directly to the latest commit
+            lastUpdated.href = latestCommit.html_url;
+        })
+        .catch(error => {
+            console.error(error);
+
+            document.getElementById("last-updated").textContent =
+                "last updated: unavailable";
+        });
+</script>
         
         
         
@@ -207,7 +243,6 @@
     <main>
         <center><ws-widget type="adbank" iid="15628" embed="iframe"></ws-widget></center>
         <h1>hello!</h1>
-        <iframe src="https://nekoweb.org/frame/follow" frameborder="0" width="130" height="20"></iframe> <a id="followers"></a>
         <p>welcome to my website!!!</p>
         <p>my name is lorenzo (no shit) and i like to code, sleep, and do other stuff. it's 6:30 rn and i'm tired asf.</p>
         <p>here you can find my blog, links, random stuff, and projects!!!</p>
@@ -377,7 +412,9 @@ position: fixed;
                         
         <h2>credits</h2>
         <p>template by <a href="https://nomnomnami.com">NomnomNami</a>!</p>
-        <small id="updated"></small>
+        <small id="last-updated" href="#" target="_blank" rel="noopener">
+    last updated: loading...
+        </small>
         <div id="latest-mastodon-post"></div> <br>
         <center><ws-widget type="adbank" iid="15628" embed="iframe"></ws-widget></center>
     </main>
