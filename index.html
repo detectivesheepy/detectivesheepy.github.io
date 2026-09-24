@@ -7,73 +7,7 @@
         <script src="nekowebapi.js" defer></script>
         
         
-        <script type="text/javascript">
-function tb8_makeArray(n){
-this.length = n;
-return this.length;
-}
-tb8_messages = new tb8_makeArray(3);
-tb8_messages[0] = "lorenzo's page";
-tb8_messages[1] = "hi twin";
-tb8_messages[2] = "cool website hey?";
-tb8_rptType = 'infinite';
-tb8_rptNbr = 5;
-tb8_speed = 100;
-tb8_delay = 2000;
-var tb8_counter=1;
-var tb8_currMsg=0;
-var tb8_tekst ="";
-var tb8_i=0;
-var tb8_TID = null;
-function tb8_pisi(){
-tb8_tekst = tb8_tekst + tb8_messages[tb8_currMsg].substring(tb8_i, tb8_i+1);
-document.title = tb8_tekst;
-tb8_sp=tb8_speed;
-tb8_i++;
-if (tb8_i==tb8_messages[tb8_currMsg].length){
-tb8_currMsg++; tb8_i=0; tb8_tekst="";tb8_sp=tb8_delay;
-}
-if (tb8_currMsg == tb8_messages.length){
-if ((tb8_rptType == 'finite') && (tb8_counter==tb8_rptNbr)){
-clearTimeout(tb8_TID);
-return;
-}
-tb8_counter++;
-tb8_currMsg = 0;
-}
-tb8_TID = setTimeout("tb8_pisi()", tb8_sp);
-}
-tb8_pisi()
-</script>
-
-        <script>const username = "lorenzolikesstuff"; // change the username!!!
-const posts_url = "https://cafe.frizzbees.dev/get_posts/1?name=";
-const profile_url = "https://social.nekoweb.org/profile/?view=";
-const post_url = "https://social.nekoweb.org/post/?id=";
-
-// thanks max
-(async () => {
-    try {
-        const request = await fetch(posts_url + username,);
-        let json = await request.json();
-        json = json[0]
-
-        timestamp = json["timestamp"] * 1000
-        time = new Date(timestamp).toUTCString();
-    
-        div = document.getElementById("nekocafe-status")
         
-        div.innerHTML = `
-            <img id="nekocafe-pfp" src=${json["image"]} height=64"><p id="nekocafe-poster"><a href="${profile_url + username}">${json["name"]}</a></p>
-            <p id="nekocafe-text"><a href="${post_url + json["id"]}">${json["post"]}</a></p>
-            
-            <p id="nekocafe-time">${time}</p>
-        ` // make sure the height on the img fits your page!!!
-
-    } catch (error) {
-        console.error(error)
-    }
-})();</script>
 
         <meta charset="UTF-8" />
         <meta name="p:domain_verify" content="e038576ea81e635e0a1691624249536c"/>
@@ -271,7 +205,7 @@ const post_url = "https://social.nekoweb.org/post/?id=";
     </div>
         
     <main>
-        <center><ws-widget type="adbank" iid="9304" embed="iframe"></ws-widget></center>
+        <center><ws-widget type="adbank" iid="15628" embed="iframe"></ws-widget></center>
         <h1>hello!</h1>
         <iframe src="https://nekoweb.org/frame/follow" frameborder="0" width="130" height="20"></iframe> <a id="followers"></a>
         <p>welcome to my website!!</p>
@@ -360,7 +294,7 @@ position: fixed;
  
     
         <h2>status</h2>
-        <ws-widget type="status" iid="15624"></ws-widget>
+        <ws-widget type="status" iid="15627"></ws-widget>
         <br>
         <img src="https://api.statusbadges.me/badge/vscode/1438071138747154575" alt="vscode">
         <img src="https://api.statusbadges.me/badge/playing/1438071138747154575" alt="playing">
@@ -445,7 +379,7 @@ position: fixed;
         <p>template by <a href="https://nomnomnami.com">NomnomNami</a>!</p>
         <small id="updated"></small>
         <div id="latest-mastodon-post"></div> <br>
-        <center><ws-widget type="adbank" iid="9304" embed="iframe"></ws-widget></center>
+        <center><ws-widget type="adbank" iid="15628" embed="iframe"></ws-widget></center>
     </main>
         
     </div>
