@@ -107,24 +107,27 @@
     <header>
         <h1>lorenzo's corner</h1>
         <!-- This is where the random text will appear -->
-    <right><b><p id="random-text-display" style="color: white; align: right;">Loading text...</p></b></right>
+    <div style="text-align: right;">
+    <b>
+        <a id="random-text-display" style="color: white;">
+            Loading text...
+        </a>
+    </b>
+</div>
 
-    <script>
-        // 1. Add your custom sentences inside the square brackets
-        const sentences = [
-            "now with added autism",
-            "plese help me i am trapped in a website",
-            "join the indie web",
-            "this website is gluten free (not me though)",
-            "i suck at coding"
-        ];
+<script>
+    const sentences = [
+        "now with added autism",
+        "plese help me i am trapped in a website",
+        "join the indie web",
+        "this website is gluten free (not me though)",
+        "i suck at coding"
+    ];
 
-        // 2. Select a completely random index from the array
-        const randomIndex = Math.floor(Math.random() * sentences.length);
+    const randomIndex = Math.floor(Math.random() * sentences.length);
 
-        // 3. Inject the chosen sentence into the HTML element
-        document.getElementById("random-text-display").innerText = sentences[randomIndex];
-    </script>
+    document.getElementById("random-text-display").innerText = sentences[randomIndex];
+</script>
         <br><br><br><br><br><br><br><br><br>
 `       <right><a href="https://www.mabsland.com/Adoption.html" target="_blank"><img src="http://www.mabsland.com/Pandas/Censor_PGc.gif" alt="WebPG" height="31" width="88"></a>
         <a href="https://brainmade.org/" target="_blank"><img src="https://brainmade.org/88x31-light.png" alt="Brainmade"></a>
