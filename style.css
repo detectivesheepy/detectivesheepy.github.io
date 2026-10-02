@@ -606,3 +606,25 @@ main h6 {
     font-size: 1rem;
   }
 }
+
+/* ===== Scrollbar CSS ===== */
+  /* Firefox */
+  * {
+    scrollbar-width: auto;
+    scrollbar-color: #0454a0 #e4f8fc;
+  }
+
+  /* Chrome, Edge, and Safari */
+  *::-webkit-scrollbar {
+    width: 16px;
+  }
+
+  *::-webkit-scrollbar-track {
+    background: #e4f8fc;
+  }
+
+  *::-webkit-scrollbar-thumb {
+    background-color: #0454a0;
+    border-radius: 0px;
+    border: 3px none #000000;
+  }
