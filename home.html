@@ -3,7 +3,31 @@
   <head>
     <script src="https://u.widget.st/ar.js"></script>
 
+    <style>
+    html, body {
+        margin: 0;
+        width: 100%;
+        height: 100%;
+    }
 
+    #background-video {
+        position: fixed;
+        top: 0;
+        left: 0;
+
+        width: 100%;
+        height: 100%;
+
+        object-fit: cover;
+        z-index: -1;
+    }
+
+    .content {
+        position: relative;
+        z-index: 1;
+        color: white;
+    }
+</style>
 
     <!-- Change your site title: (It is shown in the tab) -->
     <title>lorenzo tuff website</title>
@@ -32,7 +56,14 @@
     </script>
   </head>
   <body>
-    
+    <video id="background-video" autoplay muted loop playsinline>
+        <source src="https://files.catbox.moe/6swzwz.mp4" type="video/mp4">
+    </video>
+
+    <div class="content">
+        
+    </div>
+
     <ws-widget type="tooltips" iid="12869" embed="script"></ws-widget>
     <!-- The next line is a skip-to-content link for keyboard users. Do not remove it! -->
     <a href="#content" id="skip-to-content-link">Skip to content</a>
