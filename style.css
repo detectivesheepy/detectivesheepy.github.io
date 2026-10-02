@@ -1,436 +1,608 @@
-/* these are the main colors and header image
-   replace them with anything you want! */
+
+  
+/* -------------------------------------------------------- */
+/* VARIABLES */
+/* -------------------------------------------------------- */
+
+/* Variables are used like this: var(--text-color) */
 :root {
-  --header-bg: url("https://lorenzo.nya.je/images/star%20banner.png");
-  --accent-color: #633aac;
-  --link-color: #9f4fb1;
-  --button-color: #e5bdf9;
-  --bg-color: #fff3e8;
-  --bg-color2: #ffe8fa;
+  /* Background Colors: */
+  --background-color: #002e6c;
+  --content-background-color: #e4f8fc;
+  --sidebar-background-color: #ffffff;
+
+  /* Text Colors: */
   --text-color: #372558;
-  --favorite-color: #caec8a;
-}
-/* you can get hex codes from sites like this:
-   https://palettes.shecodes.io/
-   i just looked up "css color templates" to find that link! */
+  --sidebar-text-color: #372558;
+  --link-color: #002e6c;
+  --link-color-hover: #127296;
 
-/* this applies to all the content */
+  /* Text: */
+  --font: 'ヒラギノ角ゴ Pro W3', 'Hiragino Kaku Gothic Pro', Osaka, メイリオ, Meiryo, 'ＭＳ Ｐゴシック', 'MS PGothic', 'ＭＳ ゴシック' , 'MS Gothic', 'Noto Sans CJK JP', TakaoPGothic, sans-serif;
+  --heading-font: 'ヒラギノ角ゴ Pro W3', 'Hiragino Kaku Gothic Pro', Osaka, メイリオ, Meiryo, 'ＭＳ Ｐゴシック', 'MS PGothic', 'ＭＳ ゴシック' , 'MS Gothic', 'Noto Sans CJK JP', TakaoPGothic, sans-serif;
+  --font-size: 16px;
+
+  /* Other Settings: */
+  --margin: 10px;
+  --padding: 15px;
+  --border: 1px solid #ffa5f0;
+  --round-borders: 5px;
+  --sidebar-width: 220px;
+}
+
+/* -------------------------------------------------------- */
+/* BASICS */
+/* -------------------------------------------------------- */
+
 * {
-  color: var(--text-color);
-  /* change the font here, it's set up to all use the same one */
-  font-family: 'MS UI Gothic Custom', 'MS UI Gothic', sans-serif;
+  box-sizing: border-box;
 }
-/* this is for when you select text on the page */
-::selection {
-  background: var(--accent-color);
-  color: var(--bg-color);
-}
-
-@font-face {
-  font-family: 'MS UI Gothic Custom';
-  /* Checks user's local system first */
-  src: local('MS UI Gothic'), 
-       /* Modern browsers */
-       url('https://lorenzolikesstuff.com/MS-UIGothic-02.woff2') format('woff2'), 
-       /* Older browser fallback */
-       url('https://lorenzolikesstuff.com/MS-UIGothic-02.woff') format('woff'); 
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap; /* Prevents invisible text while loading */
-}
-
 
 body {
-  background-color: var(--bg-color2);
-  margin: 0;
-  cursor: url(https://lorenzolikesstuff.nekoweb.org/images/Normal.gif), default;
-}
-/* i think having better line spacing helps text to be more readable, but you can remove it if you want */
-p {
-  line-height: 1.5em;
-}
-
-a:hover {
-  cursor: url(https://lorenzolikesstuff.nekoweb.org/images/Link.gif), pointer;
-}
-
-header {
-  /* you can add the image url in :root (at the top) if you want */
-  background: var(--header-bg);
-  background-size: 100%;
-  background-position: center;
-  /* change the minimum height if you want it to take up more/less space */
-  max-width: 960px;
-  min-height: 400px;
-  margin: 0 auto;
-  padding: 0 1em;
-  /* i have a default border-radius set, but i didn't want rounded corners on this element */
-  border-radius: 1em;
-  box-shadow: var(--button-color) 8px 8px 20px;
-}
-
-/* this is your site title displayed at the top of the page */
-header h1 {
-  padding: 0.5em;
-  border-radius: 0.3em;
-  max-width: 900px;
-  font-size: 4em;
-  /* you can change the text-align to center or right if you want it placed differently */
-  text-align: right;
-  color: var(--bg-color);
-  text-shadow: var(--accent-color) 4px 4px 0.5em;
-}
-
-nav {
-  /*padding: 1em;*/
-  margin-top: 2em;
-  font-weight: bold;
-}
-
-nav > ul {
-  max-width: 960px;
-  margin: auto;
-  line-height: 3rem;
-  /* this stuff makes it wrap around on mobile */
   display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
-  /* this line takes away the dot in front of the list items */
-  list-style-type: none;
-  /* list items have default padding but we don't need it for these */
-  padding-left: 0;
-  /* and this spaces out the buttons so they're not touching */
-  justify-content: space-evenly;
-}
-nav li {
-  text-align: center;
-}
-nav li > a {
-  background-color: var(--button-color);
-  padding: 0.5em 3em;
-  box-shadow: var(--bg-color2) 0 0 6px;
-  /* this takes away the link underline */
-  text-decoration: none;
-}
-nav li > a:visited {
-  color: var(--link-color);
-}
-nav li > a:hover {
-  background-color: var(--favorite-color);
-  box-shadow: var(--bg-color) 0 0 6px;
+  align-items: flex-start;
+  justify-content: center;
+  min-height: 100vh;
+  font-size: var(--font-size);
+  margin: 0;
+  padding: var(--margin);
   color: var(--text-color);
-}
-
-a {
-  color: var(--link-color);
-  border-radius: 0.5em;
-  text-shadow: var(--bg-color) 1px 1px 2px;
-  font-weight: bold;
-  transition:
-    color 400ms ease-out,
-    background-color 400ms ease-out,
-  text-decoration: none;
-  padding: 4px 8px; /* Adds space for the box */
-}
-a:visited {
-  color: var(--text-color);
-}
-a:hover {
-  color: var(--link-color);
-  text-decoration: underline; /* Adds underline on hover */
+  font-family: var(--font);
+  line-height: 1.2;
+  background: var(--background-color);
+  background-image: url("");
   
 }
 
-/* you can change this to anything you want :) */
-ul {
-  list-style-type: "★ ";
+::selection {
+  /* (Text highlighted by the user) */
+  background: rgba(0, 0, 0, 0.2);
 }
 
-#sidebar {
-  background: var(--bg-color);
-  min-width: 220px;
-  margin: 1em;
-  padding: 1em;
-  border: 2px dotted var(--link-color);
-  box-shadow: var(--button-color) 8px 8px 20px;
-  border-radius: 2em;
+mark {
+  /* Text highlighted by using the <mark> element */
+  text-shadow: 1px 1px 4px var(--link-color);
+  background-color: inherit;
+  color: var(--text-color);
 }
 
-#avatar {
-  margin: 0.5em auto;
-  /* image size is 160px so i made its container a little bigger to fit the borders */
-  max-width: 164px;
-  max-height: 164px;
-  border-radius: 8em;
-}
-#avatar img {
-  background: var(--bg-color2);
-  border: 2px solid var(--button-color);
-  max-width: 160px;
-  border-radius: 8em;
+/* Links: */
+a {
+  text-decoration: underline;
 }
 
-#bio {
-  margin: 2em 1em;
-  background: var(--bg-color2);
-  border: 1px solid var(--button-color);
-  border-radius: 1em;
-}
-#bio p {
-  margin: 1em;
+a,
+a:visited {
+  color: var(--link-color);
 }
 
-#content {
-  display: flex;
-  max-width: 960px;
-  margin: auto;
+a:hover,
+a:focus {
+  color: var(--link-color-hover);
+  text-decoration: none;
+}
+
+/* -------------------------------------------------------- */
+/* LAYOUT */
+/* -------------------------------------------------------- */
+
+.layout {
+  width: 1200px;
+  display: grid;
+  grid-gap: var(--margin);
+  grid-template: "header header header" auto "leftSidebar main rightSidebar" auto "footer footer footer" auto / var(--sidebar-width) auto 300px;
+  /* Confused by the grid? Check out my tutorial: https://petrapixel.neocities.org/coding/positioning-tutorial#grid */
 }
 
 main {
-  background-color: var(--bg-color);
-  padding: 1em 2em;
-  margin: 1em;
-  border: 2px dotted var(--link-color);
-  box-shadow: var(--button-color) 8px 8px 20px;
-  border-radius: 2em;
+  grid-area: main;
+  overflow-y: auto;
+  padding: var(--padding);
+  background: var(--content-background-color);
+  border: var(--border);
+  border-radius: var(--round-borders);
 }
 
-main > h1,
-main > h2,
-main > h3 {
-  background-color: var(--favorite-color);
-  border-radius: 0.4em;
-  padding: 0.2em 0.5em;
+/* -------------------------------------------------------- */
+/* HEADER */
+/* -------------------------------------------------------- */
+
+header {
+  grid-area: header;
+  font-size: 1.2em;
+  border: var(--border);
+  border-radius: var(--round-borders);
+  background: var(--content-background-color);
 }
 
-/* a class for centering text and images */
-.center {
-  text-align: center;
+.header-content {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  grid-template-areas: "title music" "navigation music";
+  align-items: start;
+  column-gap: var(--margin);
+  row-gap: var(--margin);
+  padding: var(--padding);
 }
-/* made this a class so i can change it to be centered on mobile */
-.img-right {
-  float: right;
+
+.header-title {
+  grid-area: title;
+  font-family: var(--heading-font);
+  font-size: 1.5em;
+  font-weight: bold;
 }
+
+header ws-widget[type="musik"] {
+  grid-area: music;
+  align-self: start;
+  display: flex;
+  justify-content: flex-end;
+}
+
+header nav {
+  grid-area: navigation;
+}
+
+.header-image img {
+  width: 100%;
+  height: auto;
+}
+
+/* -------------------------------------------------------- */
+/* SIDEBARS */
+/* -------------------------------------------------------- */
+
+aside {
+  grid-area: aside;
+  border: var(--border);
+  border-radius: var(--round-borders);
+  overflow: hidden;
+  background: var(--sidebar-background-color);
+  padding: var(--padding);
+  color: var(--sidebar-text-color);
+}
+
+.left-sidebar {
+  grid-area: leftSidebar;
+}
+
+.right-sidebar {
+  grid-area: rightSidebar;
+}
+
+.sidebar-title {
+  font-weight: bold;
+  font-size: 1.2em;
+  font-family: var(--heading-font);
+}
+
+.sidebar-section:not(:last-child) {
+  margin-bottom: 3em;
+}
+
+.sidebar-section ul,
+.sidebar-section ol {
+  padding-left: 1.5em;
+}
+
+.sidebar-section > *:not(p):not(ul):not(ol):not(blockquote) {
+  margin-top: 10px;
+}
+
+/* Sidebar Blockquote: */
+
+.sidebar-section blockquote {
+  background: rgba(0, 0, 0, 0.1);
+  padding: 15px;
+  margin: 1em 0;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.sidebar-section blockquote > *:first-child {
+  margin-top: 0;
+}
+
+.sidebar-section blockquote > *:last-child {
+  margin-bottom: 0;
+}
+
+/* Site Button: */
+
+.site-button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.site-button textarea {
+  font-family: monospace;
+  font-size: 0.7em;
+}
+
+/* -------------------------------------------------------- */
+/* FOOTER */
+/* -------------------------------------------------------- */
 
 footer {
-  text-align: center;
-  font-size: small;
-  margin: 1em auto;
-  max-width: 960px;
+  grid-area: footer;
+  border: var(--border);
+  border-radius: var(--round-borders);
+  overflow: hidden;
+  font-size: 0.75em;
+  padding: 15px;
+  background: var(--content-background-color);
+  display: flex;
+  justify-content: center;
 }
 
-/* these are the mobile styles! */
-@media only screen and (max-width: 800px) {
-  #content {
-    flex-wrap: wrap;
-  }
-  #sidebar {
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-  }
-  header {
-    min-height: 160px;
-    margin: 0 1em;
-  }
-  header > h1 {
-    font-size: 3em;
-    margin: 0.4em;
-  }
-  #avatar {
-    margin: 0 1em;
-  }
-  #bio {
-    width: 50%;
-  }
-  main {
-    margin: 0 1em;
-  }
-  #sidebar ul {
-    margin: 0 1em;
-    display: flex;
-    flex-wrap: wrap;
-    line-height: 2em;
-  }
-  #sidebar li {
-    padding-left: 0;
-    margin: 0.3em 1em;
-  }
-  .img-right {
-    float: none;
-    text-align: center;
-  }
-  footer {
-    margin: 1em;
-  }
+footer a,
+footer a:visited {
+  color: var(--link-color);
+}
+
+footer a:hover,
+footer a:focus {
+  color: var(--link-color-hover);
+}
+
+/* -------------------------------------------------------- */
+/* NAVIGATION */
+/* -------------------------------------------------------- */
+
+nav {
+  margin-bottom: 3em;
+}
+
+nav .sidebar-title {
+  margin-bottom: 0.5em;
+}
+
+nav ul {
+  margin: 0 -5px;
+  padding: 0;
+  list-style: none;
+  user-select: none;
+}
+
+nav ul li {
+  margin-bottom: 0;
+}
+
+nav > ul li > a,
+nav > ul li > strong {
+  display: inline-block;
+}
+
+nav > ul li > a,
+nav > ul li > details summary,
+nav > ul li > strong {
+  padding: 5px 10px;
+}
+
+nav > ul li > a.active,
+nav > ul li > details.active summary {
+  font-weight: bold;
+}
+
+nav ul summary {
+  cursor: pointer;
+}
+
+nav ul ul li > a {
+  padding-left: 30px;
+}
+
+/* NAVIGATION IN HEADER */
+
+header nav {
+  margin-bottom: 0;
+}
+
+header nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0;
+}
+
+header nav ul li {
+  position: relative;
+}
+
+header nav ul li:first-child > a {
+  padding-left: 0;
+}
+
+header nav ul li:last-child > a {
+  padding-right: 0;
+}
+
+/* Subnavigation (Drop-Down): */
+
+header nav ul ul {
+  background: var(--content-background-color);
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 10px;
+  padding: 0.5em;
+  z-index: 1;
+  border: var(--border);
+  min-width: 100%;
+  box-shadow: 0px 1px 5px rgba(0,0,0,0.2);
+}
+
+header nav ul li:hover ul,
+header nav ul li:focus-within ul {
+  display: block;
+}
+
+header nav ul li strong {
+  color: var(--link-color);
+  text-decoration: underline;
+  font-weight: normal;
+}
+
+header nav ul ul li a {
+  display: block;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+/* -------------------------------------------------------- */
+/* CONTENT */
+/* -------------------------------------------------------- */
+
+main {
+  line-height: 1.5;
+}
+
+main a,
+main a:visited {
+  color: var(--link-color);
+}
+
+main a:hover,
+main a:focus {
+  color: var(--link-color-hover);
+  text-decoration-style: wavy;
+}
+
+main p,
+main .image,
+main .full-width-image,
+main .two-columns {
+  margin: 0.75em 0;
+}
+
+main ol,
+main ul {
+  margin: 0.5em 0;
+  padding-left: 1.5em;
+}
+
+main ol li,
+main ul li {
+  margin-bottom: 0.2em;
+  line-height: 1.3;
+}
+
+main ol {
+  padding-left: 2em;
+}
+
+main blockquote {
+  background: rgba(0, 0, 0, 0.1);
+  padding: 15px;
+  margin: 1em 0;
+  border-radius: 10px;
+}
+
+main pre {
+  margin: 1em 0 1.5em;
+}
+
+main code {
+  text-transform: none;
+}
+
+main center {
+  margin: 1em 0;
+  padding: 0 1em;
+}
+
+main hr {
+  border: 0;
+  border-top: var(--border);
+  margin: 1.5em 0;
+}
+
+/* HEADINGS: */
+
+main h1,
+main h2,
+main h3,
+main h4,
+main h5,
+main h6 {
+  font-family: var(--heading-font);
+  margin-bottom: 0;
+  line-height: 1.5;
+}
+
+main h1:first-child,
+main h2:first-child,
+main h3:first-child,
+main h4:first-child,
+main h5:first-child,
+main h6:first-child {
+  margin-top: 0;
+}
+
+main h1 {
+  font-size: 1.5em;
+}
+
+main h2 {
+  font-size: 1.4em;
+}
+
+main h3 {
+  font-size: 1.3em;
+}
+
+main h4 {
+  font-size: 1.2em;
+}
+
+main h5 {
+  font-size: 1.1em;
+}
+
+main h6 {
+  font-size: 1em;
+}
+
+/* COLUMNS: */
+
+.two-columns {
+  display: flex;
+}
+
+.two-columns > * {
+  flex: 1 1 0;
+  margin: 0;
+}
+
+.two-columns > *:first-child {
+  padding-right: 0.75em;
+}
+
+.two-columns > *:last-child {
+  padding-left: 0.75em;
+}
+
+/* -------------------------------------------------------- */
+/* CONTENT IMAGES */
+/* -------------------------------------------------------- */
+
+.image {
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+}
+
+.full-width-image {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.images {
+  display: flex;
+  width: calc(100% + 5px + 5px);
+  margin-left: -5px;
+  margin-right: -5px;
+}
+
+.images img {
+  width: 100%;
+  height: auto;
+  padding: 5px;
+  margin: 0;
+  overflow: hidden;
+}
+
+/* -------------------------------------------------------- */
+/* ACCESSIBILITY */
+/* -------------------------------------------------------- */
+
+/* please do not remove this. */
+
+#skip-to-content-link {
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: inline-block;
+  padding: 0.375rem 0.75rem;
+  line-height: 1;
+  font-size: 1.25rem;
+  background-color: var(--content-background-color);
+  color: var(--text-color);
+  transform: translateY(-3rem);
+  transition: transform 0.1s ease-in;
+  z-index: 99999999999;
+}
+
+#skip-to-content-link:focus,
+#skip-to-content-link:focus-within {
+  transform: translateY(0);
+}
+
+/* -------------------------------------------------------- */
+/* MOBILE RESPONSIVE */
+/* -------------------------------------------------------- */
+
+/* CSS Code for devices < 800px */
+@media (max-width: 800px) {
   body {
-    /* Link to your new GIF; "auto" is a mandatory fallback */
-    cursor: url("https://lorenzolikesstuff.nekoweb.org/images/Normal.gif"), auto;
+    font-size: 14px;
   }
-  .speech-bubble {
-    position: relative; /* Essential for positioning the tail */
-    background: #f0f0f0;
-    border: 2px solid #333;
-    border-radius: 15px;
+
+  .header-content {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas: "title" "music" "navigation";
+  }
+
+  .layout {
+    width: 100%;
+    grid-template: "header" auto  "main" auto "footer" auto / 1fr;
+    /* Confused by the grid? Check out my tutorial: https://petrapixel.neocities.org/coding/positioning-tutorial#grid */
+  }
+
+  .left-sidebar { 
+    display: none;
+  }
+  .right-sidebar { 
+    display: none;
+  }
+
+  aside {
+    border-bottom: 1px solid;
+    padding: 9px;
+    font-size: 0.9em;
+  }
+
+  
+  nav {
+    padding: 0;
+  }
+
+  nav > ul {
+    padding-top: 0.5em;
+  }
+
+  nav > ul li > a,
+  nav > ul li > details summary,
+  nav > ul li > strong {
+    padding: 0.5em;
+  }
+
+  main {
+    max-height: none;
     padding: 15px;
-    width: fit-content;
-    max-width: 300px;
-    margin: 20px;
   }
 
-  /* The tail of the speech bubble */
-  .speech-bubble::after {
-    content: "";
-    position: absolute;
-    bottom: -15px; /* Adjust to move tail up/down */
-    left: 20px; /* Adjust to move tail left/right */
-
-    /* Creates a triangle using borders */
-    border-width: 15px 15px 0;
-    border-style: solid;
-    border-color: #f0f0f0 transparent transparent;
-    display: block;
-    width: 0;
+  .images {
+    flex-wrap: wrap;
   }
 
-  /* Optional: Tail border (if your bubble has a border) */
-  .speech-bubble::before {
-    content: "";
-    position: absolute;
-    bottom: -18px;
-    left: 19px;
-    border-width: 16px 16px 0;
-    border-style: solid;
-    border-color: #333 transparent transparent;
-    display: block;
-    width: 0;
-    z-index: -1; /* Place behind the main tail color */
+  .images img {
+    width: 100%;
   }
 
-  #bg-video {
-    position: fixed; /* Keeps it fixed in the viewport while you scroll */
-    top: 0;
-    left: 0;
-    width: 100%; /* Ensures full width */
-    height: 100vh; /* Ensures full viewport height */
-    z-index: -1; /* Places it behind all other content */
-    object-fit: cover; /* Prevents the animation from stretching or squishing */
-    filter: blur(20px);
+  #skip-to-content-link {
+    font-size: 1rem;
   }
-
-  iframe,
-  .player {
-    border: none;
-    outline: none;
-    box-shadow: none;
-  }
-
-/* 1. Chromium (Chrome, Edge) & Safari Styling */
-/* Do NOT include scrollbar-color or scrollbar-width here */
-::-webkit-scrollbar {
-  width: 14px;
-}
-
-::-webkit-scrollbar-track {
-  background: #FFF3E8;
-}
-
-::-webkit-scrollbar-thumb {
-  background-color: #CAEC8A;
-  border-radius: 20px;
-  border: 4px solid #FFF3E8; /* 'Padding' effect */
-}
-
-/* 2. Firefox Styling ONLY */
-/* This @supports rule hides these properties from Chrome/Edge */
-@supports not selector(::-webkit-scrollbar) {
-  html {
-    scrollbar-width: thin;
-    scrollbar-color: #CAEC8A #FFF3E8;
-  }
-}
-
-   ::-webkit-scrollbar {
-      width: 16px;
-    }
-
-    ::-webkit-scrollbar:horizontal {
-      height: 17px;
-    }
-
-    ::-webkit-scrollbar-corner {
-      background: #eee;
-    }
-
-    ::-webkit-scrollbar-track:vertical {
-      background: linear-gradient(90deg, #e5e5e5, #f0f0f0 20%);
-    }
-
-    ::-webkit-scrollbar-track:horizontal {
-      background: linear-gradient(180deg, #e5e5e5, #f0f0f0 20%);
-    }
-
-    ::-webkit-scrollbar-thumb {
-      border: 1.5px solid #888;
-      border-radius: 3px;
-      box-shadow: inset 0 -1px 1px #fff, inset 0 1px 1px #fff;
-      background-color: #eee;
-    }
-
-    ::-webkit-scrollbar-thumb:vertical {
-      background: url("https://i.imgur.com/bfyvjnx.png") no-repeat 50%, linear-gradient(90deg, #eee 45%, #ddd 0, #bbb);
-    }
-
-    ::-webkit-scrollbar-thumb:horizontal {
-      background: url("https://i.imgur.com/tqe4SxM.png") no-repeat 50%, linear-gradient(180deg, #eee 45%, #ddd 0, #bbb);
-    }
-
-    ::-webkit-scrollbar-button:horizontal:end:increment,
-    ::-webkit-scrollbar-button:horizontal:start:decrement,
-    ::-webkit-scrollbar-button:vertical:end:increment,
-    ::-webkit-scrollbar-button:vertical:start:decrement {
-      display: block;
-    }
-
-    ::-webkit-scrollbar-button:vertical {
-      height: 17px;
-    }
-
-    ::-webkit-scrollbar-button:vertical:start:decrement {
-      background: white;
-      background-image: url("https://i.imgur.com/EFnEMEb.png");
-      background-repeat: no-repeat;
-      background-position: center;
-      -moz-background-size: cover;
-      -webkit-background-size: cover;
-      -o-background-size: cover;
-      background-size: cover;
-    }
-
-    ::-webkit-scrollbar-button:vertical:start:increment {
-      display: none;
-    }
-
-    ::-webkit-scrollbar-button:vertical:end:decrement {
-      display: none;
-    }
-
-    ::-webkit-scrollbar-button:vertical:end:increment {
-      background: white;
-      background-image: url("https://i.imgur.com/xuIt6Lc.png");
-      background-repeat: no-repeat;
-      background-position: center;
-      -moz-background-size: cover;
-      -webkit-background-size: cover;
-      -o-background-size: cover;
-      background-size: cover;
-    }
-    
-    html, body {
-  overflow-x: hidden;
-}
-    
-
 }
