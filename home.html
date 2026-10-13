@@ -126,6 +126,26 @@
 <a href="https://andromedagalaxy.nekoweb.org/" target="_blank"><img src="https://andromedagalaxy.nekoweb.org/67.gif" alt="andromedagalaxy" title="this is my dumb moronic my website (im poop at coding)"></a><br>
 <a href="https://mynekosworld.neocities.org/"><img src="https://mynekosworld.pages.dev/static/img/button/rolling1.gif" width="88" height="31" alt="My Nekos' World"></a>
 <a href="https://numa-smells.nekoweb.org/"><img src="https://numa-smells.nekoweb.org/assets/images/button.gif"></a><br>
+<a href="https://axelotl3001.neocities.org/" target=_blank><img src="https://axelotl3001.neocities.org/buttons/websitebutton.png"></a>
+
+<br><br>
+<p id="textToCopy"><a href="https://lorenzo.nya.je"><img src="https://lorenzo.nya.je/button.gif"></a></p>
+<button onclick="copyStaticText()">hotlink me!</button>
+
+<script>
+function copyStaticText() {
+  const text = document.getElementById("textToCopy").innerText;
+
+  navigator.clipboard.writeText(text)
+    .then(() => {
+      alert("copied code to your clipboard!");
+    })
+    .catch(err => {
+      console.error("couldn't copy text :( error: ", err);
+    });
+}
+</script>
+
 
             
         </div>
