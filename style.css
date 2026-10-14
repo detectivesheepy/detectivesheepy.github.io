@@ -628,3 +628,58 @@ main h6 {
     border-radius: 0px;
     border: 3px none #000000;
   }
+
+/* video bg */
+
+  #bg-video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  z-index: -1; /* Keeps the video behind your text and buttons */
+}
+
+/* Optional: Layer content above the video */
+.content {
+  position: relative;
+  z-index: 1;
+  color: white; /* Make text readable against the video */
+}
+
+/* previews */
+.pppp-link {
+  position: relative;
+}
+
+.pppp-preview {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 0;
+  box-shadow: 0 0 10px rgba(84, 17, 64, 0.25);
+  z-index: 9999;
+  width: 0;
+  height: 0;
+  display: none;
+}
+
+.pppp-preview iframe {
+  width: 1920px;
+  height: 1080px;
+  transform: scale(0.1);
+  transform-origin: top left;
+  pointer-events: none;
+}
+
+.pppp-preview.pppp-preview--visible {
+  display: block;
+  width: 192px;
+  height: 108px;
+}
+
+.pppp-preview.pppp-preview--loading::before {
+  /* style for loading state here... */
+}
