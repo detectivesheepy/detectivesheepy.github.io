@@ -4,7 +4,39 @@
     <script src="https://u.widget.st/ar.js"></script>
     <script src="javascript/previews.js"></script>
     
+<style>
+  /* The window through which the marquee is viewed */
+  .marquee-container {
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    background-color: #e4f8fc;
+    padding: 10px 0;
+  }
 
+  /* The long strip containing all the images */
+  .marquee-content {
+    display: inline-flex;
+    gap: 20px;
+    animation: scroll-left 15s linear infinite;
+  }
+
+  /* Image dimensions */
+  .marquee-content img {
+    height: 31px;
+    width: auto;
+  }
+
+  /* The actual movement effect */
+  @keyframes scroll-left {
+    0% {
+      transform: translateX(0%);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+</style>
     
 <style> 
 .scripted {
@@ -111,36 +143,8 @@
         </div>
         
         <div class="sidebar-section">
-          <div class="sidebar-title">random buttons!</div>
-          <center><a href="https://nekoweb.org" target="_blank"><img src="https://lorenzobadges.vercel.app/assets/nekoweb.gif" alt="Nekoweb | The internet is for the cats!"></a>
-<a href="https://yesterweb.org/no-to-web3/" target="_blank"><img src="https://lorenzobadges.vercel.app/assets/noweb32.gif" alt="NO WEB3"></a><br>
-<a href="https://code.visualstudio.com/" target="_blank"><img src="https://lorenzobadges.vercel.app/assets/vscode.gif" alt="Visual Studio Code"></a>
-<a href="https://blinkies.cafe" target="_blank"><img src="https://lorenzobadges.vercel.app/assets/iloveblinkies.gif" alt="Blinkies Cafe!!!"></a><br>
-<a href="https://playwebradio.vercel.app" target="_blank"><img src="https://playwebradio.vercel.app/button.gif" alt="webradio"></a>
-<a href="https://skelenby.neocities.org/"> <img src="https://skelenby.neocities.org/src/skelenbybtn.gif" alt="skelenby: create - collect"> </a><br>
-<a href="https://marcoisbored.nekoweb.org/" target="_blank"><img src="https://marcoisbored.nekoweb.org/site-button.gif" alt="Marco's Site!"title="CLICK IT. NOW."></a>
-<a href="https://petrapixel.neocities.org/" target="_blank"><img src="https://cdn.jsdelivr.net/gh/petracoding/petrapixel.neocities.org@latest/public/assets/img/linkback.gif" alt="petrapixel"></a><br>
-<a href="https://ghostk.id/"><img src="https://ghostk.id/i/88x31.gif" width="88" height="31" alt="https://ghostk.id button"></a>
-<a href="https://lorenzo.atabook.org"><img src="https://kingdra.net/assets/index/guestbook.gif"></a><br>
-<a href="https://sealshore.nekoweb.org/" target="_blank"><img src="https://file.garden/aF9Y2rjeJ2PqUbPh/sealshorebutton"></a>
-<a href="https://dimden.dev/"><img src="https://dimden.dev/services/images/88x31.gif"></a><br>
-<a href="https://atabook.org/"><img src="https://atabook.org/images/button.gif" alt="atabook - guestbook site" border="0"></a>
-<a href="https://frutigeraeroarchive.org"><img src="https://frutigeraeroarchive.org/images/buttons/frutigeraeroarchive_button.png" alt="frutiger aero archive" border="0"></a><br>
-<a href="https://max.nekoweb.org/"><img src="https://max.nekoweb.org/images/button.png" alt="max's apartment"></a>
-<a href="https://yeepsite.nekoweb.org" title="The Yeepsite"><img src="https://yeepsite.nekoweb.org/images/Button.webp" alt="Yeepsite" style="image-rendering: pixelated;"/></a><br>
-<a href="https://milkyway.moe/"><img src="https://milkyway.moe/milkybuttons/MiLKYStelle.gif"></a>
-<iframe width="88" height="31" style="border:none" src="https://melonsoda.nekoweb.org/button.html" name="buttonlink"></iframe><br>
-<a href="https://area.nekoweb.org" title="GeoNetwork"><img src="https://area.nekoweb.org/button.png" alt="GeoNetwork" style="image-rendering: pixelated;"/></a>
-<a href="https://www.wikiwand.com/en/Autism" title="Autistic"><img src="https://qalle.neocities.org/88x31/pride-autism-fullcolour.png" alt="Autistic" style="image-rendering: pixelated;"/></a><br>
-<a href="https://www.ikea.com/fi/en/p/blahaj-soft-toy-shark-30373588/" title="BUY A BLAHAJ"><img src="https://qalle.neocities.org/88x31/pride-blahaj.png" alt="Blahaj" style="image-rendering: pixelated;"/></a>
-<a href="https://ellen.nekoweb.org" target="_blank"><img src="https://ellen.nekoweb.org/Images/website%20button.gif" alt="ellenthekat" title="oOoOoOo, you wanna click on this don't ya?"></a><br>
-<a href="https://rainboe.nekoweb.org/" target="new"><img src="https://rainboe.nekoweb.org/img/buttons/rainboe88x31.gif"></a>
-<a href="https://ultrakill.nekoweb.org/" target="_blank"><img src="https://ultrakill.nekoweb.org/67.gif" alt="andromedagalaxy" title="this is my dumb moronic my website (im poop at coding)"></a><br>
-<a href="https://mynekosworld.neocities.org/"><img src="https://mynekosworld.pages.dev/static/img/button/rolling1.gif" width="88" height="31" alt="My Nekos' World"></a>
-<a href="https://numa-smells.nekoweb.org/"><img src="https://numa-smells.nekoweb.org/assets/images/button.gif"></a><br>
-<a href="https://axelotl3001.neocities.org/" target=_blank><img src="https://axelotl3001.neocities.org/buttons/websitebutton.png"></a>
-
-<br><br>
+          <div class="sidebar-title">link my site!</div>
+          <center>
 <p id="textToCopy"><a href="https://lorenzo.nya.je"><img src="https://lorenzo.nya.je/button.gif"></a></p>
 <button style="color: black; background-color: lightgrey;" onclick="copyStaticText()">hotlink me!</button>
 
@@ -242,7 +246,39 @@ function copyStaticText() {
 
 
         <section>
-          
+          <div class="marquee-container">
+            <div class="marquee-content">
+              <a href="https://nekoweb.org" target="_blank"><img src="https://lorenzobadges.vercel.app/assets/nekoweb.gif" alt="Nekoweb | The internet is for the cats!"></a>
+              <a href="https://yesterweb.org/no-to-web3/" target="_blank"><img src="https://lorenzobadges.vercel.app/assets/noweb32.gif" alt="NO WEB3"></a>
+              <a href="https://code.visualstudio.com/" target="_blank"><img src="https://lorenzobadges.vercel.app/assets/vscode.gif" alt="Visual Studio Code"></a>
+              <a href="https://blinkies.cafe" target="_blank"><img src="https://lorenzobadges.vercel.app/assets/iloveblinkies.gif" alt="Blinkies Cafe!!!"></a>
+              <a href="https://playwebradio.vercel.app" target="_blank"><img src="https://playwebradio.vercel.app/button.gif" alt="webradio"></a>
+              <a href="https://skelenby.neocities.org/"> <img src="https://skelenby.neocities.org/src/skelenbybtn.gif" alt="skelenby: create - collect"> </a>
+              <a href="https://marcoisbored.nekoweb.org/" target="_blank"><img src="https://marcoisbored.nekoweb.org/site-button.gif" alt="Marco's Site!"title="CLICK IT. NOW."></a>
+              <a href="https://petrapixel.neocities.org/" target="_blank"><img src="https://cdn.jsdelivr.net/gh/petracoding/petrapixel.neocities.org@latest/public/assets/img/linkback.gif" alt="petrapixel"></a>
+              <a href="https://ghostk.id/"><img src="https://ghostk.id/i/88x31.gif" width="88" height="31" alt="https://ghostk.id button"></a>
+              <a href="https://lorenzo.atabook.org"><img src="https://kingdra.net/assets/index/guestbook.gif"></a>
+              <a href="https://sealshore.nekoweb.org/" target="_blank"><img src="https://file.garden/aF9Y2rjeJ2PqUbPh/sealshorebutton"></a>
+              <a href="https://dimden.dev/"><img src="https://dimden.dev/services/images/88x31.gif"></a>
+              <a href="https://atabook.org/"><img src="https://atabook.org/images/button.gif" alt="atabook - guestbook site" border="0"></a>
+             <a href="https://frutigeraeroarchive.org"><img src="https://frutigeraeroarchive.org/images/buttons/frutigeraeroarchive_button.png" alt="frutiger aero archive" border="0"></a>
+              <a href="https://max.nekoweb.org/"><img src="https://max.nekoweb.org/images/button.png" alt="max's apartment"></a>
+              <a href="https://yeepsite.nekoweb.org" title="The Yeepsite"><img src="https://yeepsite.nekoweb.org/images/Button.webp" alt="Yeepsite" style="image-rendering: pixelated;"/></a>
+              <a href="https://milkyway.moe/"><img src="https://milkyway.moe/milkybuttons/MiLKYStelle.gif"></a>
+              <iframe width="88" height="31" style="border:none" src="https://melonsoda.nekoweb.org/button.html" name="buttonlink"></iframe>
+             <a href="https://area.nekoweb.org" title="GeoNetwork"><img src="https://area.nekoweb.org/button.png" alt="GeoNetwork" style="image-rendering: pixelated;"/></a>
+              <a href="https://www.wikiwand.com/en/Autism" title="Autistic"><img src="https://qalle.neocities.org/88x31/pride-autism-fullcolour.png" alt="Autistic" style="image-rendering: pixelated;"/></a>
+              <a href="https://www.ikea.com/fi/en/p/blahaj-soft-toy-shark-30373588/" title="BUY A BLAHAJ"><img src="https://qalle.neocities.org/88x31/pride-blahaj.png" alt="Blahaj" style="image-rendering: pixelated;"/></a>
+              <a href="https://ellen.nekoweb.org" target="_blank"><img src="https://ellen.nekoweb.org/Images/website%20button.gif" alt="ellenthekat" title="oOoOoOo, you wanna click on this don't ya?"></a>
+              <a href="https://rainboe.nekoweb.org/" target="new"><img src="https://rainboe.nekoweb.org/img/buttons/rainboe88x31.gif"></a>
+             <a href="https://ultrakill.nekoweb.org/" target="_blank"><img src="https://ultrakill.nekoweb.org/67.gif" alt="andromedagalaxy" title="this is my dumb moronic my website (im poop at coding)"></a>
+             <a href="https://mynekosworld.neocities.org/"><img src="https://mynekosworld.pages.dev/static/img/button/rolling1.gif" width="88" height="31" alt="My Nekos' World"></a>
+             <a href="https://numa-smells.nekoweb.org/"><img src="https://numa-smells.nekoweb.org/assets/images/button.gif"></a>
+             <a href="https://axelotl3001.neocities.org/" target="_blank"><img src="https://axelotl3001.neocities.org/buttons/websitebutton.png"></a>
+            </div>
+          </div>
+
+
           <h1 class="scripted">hello!</h1>
         <p>welcome to my website!!!</p>
         <p>my name is lorenzo (no shit) and i like to code, sleep, and do other stuff. it's 6:30 rn and i'm tired asf.</p>
