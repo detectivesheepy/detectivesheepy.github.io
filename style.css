@@ -690,3 +690,6 @@ main h6 {
   border-radius: 10px;
 }
 
+body {
+  cursor: url('mouse/normal.gif') 16 16, auto;
+}
