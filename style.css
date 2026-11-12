@@ -684,3 +684,8 @@ main h6 {
 .pppp-preview.pppp-preview--loading::before {
   /* style for loading state here... */
 }
+
+.border {
+  border: 16px double #ffa5f0;
+  border-radius: 10px;
+}
