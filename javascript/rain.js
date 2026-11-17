@@ -1,7 +1,7 @@
 // <![CDATA[
 var speed=33; // lower number for faster
 var drops=100; // number of 'drops'
-var colour="#999"; // colour of drops (generally grey!)
+var colour="#ffffff"; // colour of drops (generally grey!)
 
 /***************************\
 *   Rainy Afternoon Effect  *
