@@ -1,4 +1,3 @@
-```yaml
 name: Deploy to Nekoweb
 
 on:
@@ -35,4 +34,3 @@ jobs:
           RETRY_ATTEMPTS: '5'
           RETRY_DELAY: '2'
           RETRY_EXP_BACKOFF: 'True'
-```
