@@ -1,25 +1,38 @@
-
+```yaml
 name: Deploy to Nekoweb
 
 on:
   push:
-    branches: [main]
+    branches:
+      - main
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    name: deploy2nekoweb
 
     steps:
-      - name: Checkout
-        uses: actions/checkout@v6
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Prepare website files
+        run: |
+          mkdir -p _nekoweb-build
+          rsync -a --delete \
+            --exclude='/.git/' \
+            --exclude='/.github/' \
+            --exclude='/_nekoweb-build/' \
+            ./ _nekoweb-build/
 
       - name: Deploy to Nekoweb
         uses: mp-pinheiro/nekoweb-deploy@0.3.0
         with:
           API_KEY: ${{ secrets.NEKOWEB_API_KEY }}
-          BUILD_DIR: '.'
+          BUILD_DIR: './_nekoweb-build'
           DEPLOY_DIR: '/lorenzo.nekoweb.org'
           NEKOWEB_PAGENAME: 'lorenzo'
           CLEANUP: 'True'
-          DELAY: '0.5'
+          DELAY: '1'
+          RETRY_ATTEMPTS: '5'
+          RETRY_DELAY: '2'
+          RETRY_EXP_BACKOFF: 'True'
+```
